@@ -13,3 +13,51 @@ background: yellow;
 .Discussion {
 background: green;
 }
+
+#dDView{
+	margin-bottom: 10px;
+}
+
+input, #typeList{
+	width:380px;
+	height:30px;
+	background:#efefef;
+	border-radius:5px;
+	border:1px solid #dedede;
+	padding:10px;
+	margin-bottom: 10px;
+	margin-top:3px;
+	font-size:0.9em;
+}
+
+#cancelBtn{
+	width:200px;
+	height:30px;
+	padding:10px;
+	background-color: red;
+
+}
+
+#saveBtn {
+	width:200px;
+	height:30px;
+	padding:10px;
+	background-color: green;
+	margin-bottom: 30px;
+}
+
+#descField {
+	width:380px;
+	height:90px;
+	background:#efefef;
+	border-radius:5px;
+	border:1px solid #dedede;
+	padding:10px;
+	margin-bottom: 10px;
+	margin-top:3px;
+	font-size:0.9em;
+}
+
+form {
+	width:500px;
+}
