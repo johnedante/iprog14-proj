@@ -224,8 +224,8 @@ function Model(){
 // this is the instance of our main model
 // this is what you should use in your application
 var model = new Model();
-
-
+createTestData();
+//model.addDay();
 // you can use this method to create some test data and test your implementation
 function createTestData(){
 	model.addDay();

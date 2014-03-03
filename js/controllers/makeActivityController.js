@@ -3,7 +3,12 @@ var MakeActivityController = function(view, model ) {
 	view.dDBtn.click(function(){
 		$('#makeActivityView').hide();
 		$('#dragDropView').show();
-		$( "#div1").append('<div class="presentation">snälla?</div>');
+		
 	});
 
+	view.dDBtn2.click(function(){
+		$('#makeActivityView').hide();
+		$('#dragDropView').show();
+	
+	});
 }
