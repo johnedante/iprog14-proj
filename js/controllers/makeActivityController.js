@@ -7,6 +7,7 @@ var MakeActivityController = function(view, model ) {
 	});
 
 	view.dDBtn2.click(function(){
+		model.addActivity(new Activity("Testaktivitet",10,0,"Test"));
 		$('#makeActivityView').hide();
 		$('#dragDropView').show();
 	
