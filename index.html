@@ -8,11 +8,21 @@
  <body>
  	<div id="dragDropView">
  		<button id="mAView">Activity</button>
+
+ 		<div id="div1" style="height:100px;width:100px;border:1px solid black;float:left;" ondrop="drop(event)" ondragover="allowDrop(event)">
+ 			<div id="drag1" style="border:2px dotted red;" draggable="true" ondragstart="drag(event)">Testa att dra1</div>
+ 			<div id="drag2" style="border:2px dotted red;" draggable="true" ondragstart="drag(event)">Testa att dra2</div>
+ 			<div id="drag3" style="border:2px dotted red;" draggable="true" ondragstart="drag(event)">Testa att dra3</div>
+ 			<div id="drag4" style="border:2px dotted red;" draggable="true" ondragstart="drag(event)">Testa att dra4</div>
+ 		</div>
+ 		<div id="div2" style="height:100px;width:100px;border:1px solid black;float:left;" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
  	</div>
 
  	<div id="makeActivityView">
  		<button id="dDView">Drag and Drop</button>
  	</div>
+
 
  	<script src="https://code.jquery.com/jquery.js"></script>
  	<script src="js/app.js"></script>
