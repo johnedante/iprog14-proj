@@ -18,8 +18,13 @@ var index = 3;
 		$(init);
 	function init() {
 	  $( ".droparea" ).sortable({
-      connectWith: ".droparea"
+      connectWith: ".droparea",
+	  start: function(event, ui) { console.log($(ui.item[0]).attr('id')); },    
+		stop:function(event, ui) {console.log($(ui.item[0]).position()); }
+	  
     }).disableSelection();
+		 
+   
   }
 
 
