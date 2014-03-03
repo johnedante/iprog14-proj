@@ -1,22 +1,21 @@
 var DragDropController = function(view, model ) {
-
+var index = 2;
 	view.mABtn.click(function(){
 		$('#dragDropView').hide();
 		$('#makeActivityView').show();
 	});
 
+	view.mABtn2.click(function(){
+		$('#dragDropView').append('<div id="div'+index+'" class="droparea" style="height:200px;width:100px;border:1px solid black;float:left;">');
+		$(init);
+	});
 }
 
-function allowDrop(ev){
-	ev.preventDefault();
-}
+		$(init);
+	function init() {
+	  $( ".droparea" ).sortable({
+      connectWith: ".droparea"
+    }).disableSelection();
+  }
 
-function drag(ev){
-	ev.dataTransfer.setData("Text",ev.target.id);
-}
 
-function drop(ev){
-	ev.preventDefault();
-	var data = ev.dataTransfer.getData("Text");
-	ev.target.appendChild(document.getElementById(data));
-}
