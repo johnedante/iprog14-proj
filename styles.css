@@ -1,11 +1,15 @@
-.work {
+.presentation {
+background: blue;
+}
 
+.groupwork {
 background: red;
+}
 
-}
-.fun {
-background: #0a0a0a;
-}
 .break {
-background: #f0f0f0;
+background: yellow;
+}
+
+.discussion {
+background: green;
 }
