@@ -3,16 +3,16 @@ var DragDropView = function (container,model) {
 	this.mABtn = container.find('#mAView');
 	this.mABtn2 = container.find('#mAView2');
 	model.addObserver(this);
-
-	$(as);
 	
-	this.update = function (){
+	
+	this.update = function(){
 	var parked = model.parkedActivities;
 	var first= "nullday";
 	for(var i=0;i<parked.length;i++){
 		var html= '<div id="'+first+i+'" class="'+parked[i].getType().replace(" ", "")+'"> '+parked[i].getLength()+' min '+parked[i].getName()+'</div>';
 		$("#div1").append(html);
 	}
+	var k = 0;
 		for(var j = 0;j<model.days.length;j++){
 		var day = model.days[j];
 		first = j+"day";
@@ -24,7 +24,7 @@ var DragDropView = function (container,model) {
 	}
 
 }
-
+$(as);
 
 }
 
@@ -45,4 +45,4 @@ for(var i=0;i<parked.length;i++){
 	$("#div"+k).append(html);
 	}
 }
-};
+}
