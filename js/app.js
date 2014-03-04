@@ -8,4 +8,5 @@ $(function() {
 	var makeActivityController = new MakeActivityController(makeActivityView,model);
 
 	$('#makeActivityView').hide();
-});
+	
+	});

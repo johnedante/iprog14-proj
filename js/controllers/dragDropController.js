@@ -7,8 +7,8 @@ var index = 3;
 	});
 
 	view.mABtn2.click(function(){
+
 		$('#dragDropView').append('<div id="div'+index+'" class="droparea" style="height:100px;width:180px;border:1px solid black;float:left;">');
-		model.addDay();
 		index++;
 		
 		$(init);
@@ -17,6 +17,7 @@ var index = 3;
 
 		$(init);
 	function init() {
+	model.addDay();
 		$( ".droparea" ).sortable({
 			connectWith: ".droparea",
 			start: function(event, ui) { sta = $(ui.item[0]).position(); console.log(sta); },    
