@@ -24,12 +24,21 @@ for(var i=0;i<parked.length;i++){
 	var k = 0;
 		for(var j = 0;j<model.days.length;j++){
 		var day = model.days[j];
-		first = j+"day";
+				first = j+"day";
 	k=j+2;
+	var html="";
+		html=html+"Day Start: " + day.getStart()+"</br>";
+	html=html+"Day End: " + day.getEnd()+"</br>";
+	html=html+"Day Length: " + day.getTotalLength() + " min</br>";
+	$.each(ActivityType,function(index,type){
+		html=html+"Day '" + ActivityType[index] + "' Length: " +  day.getLengthByType(index) + " min</br>";
+		});
+	$("#stats"+k).html(html);
 	$("#div"+k).html("");
 	for(var i=0;i<day._activities.length;i++){
 	var html= '<div id="'+first+i+'" class="'+day._activities[i].getType().replace(" ", "")+'"> '+day._activities[i].getLength()+' min '+day._activities[i].getName()+'</div>';
 	$("#div"+k).append(html);
 	}
 }
+	
 }

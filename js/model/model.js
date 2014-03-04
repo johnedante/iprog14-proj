@@ -81,7 +81,7 @@ function Day(startH,startM) {
 	this.getTotalLength = function () {
 		var totalLength = 0;
 		$.each(this._activities,function(index,activity){
-			totalLength += activity.getLength();
+			totalLength += parseInt(activity.getLength());
 		});
 		return totalLength;
 	};
@@ -104,7 +104,7 @@ function Day(startH,startM) {
 		var length = 0;
 		$.each(this._activities,function(index,activity){
 			if(activity.getTypeId() == typeid){
-				length += activity.getLength();
+				length += parseInt(activity.getLength());
 			}
 		});
 		return length;
