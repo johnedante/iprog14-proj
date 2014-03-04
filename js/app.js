@@ -1,5 +1,5 @@
 $(function() {
-	var model = new Model();
+	//var model = new Model();
 
 	var dragDropView = new DragDropView($('#dragDropView'),model);
 	var dragDropController = new DragDropController(dragDropView,model);
