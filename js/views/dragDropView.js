@@ -30,9 +30,11 @@ for(var i=0;i<parked.length;i++){
 		html=html+"Day Start: " + day.getStart()+"</br>";
 	html=html+"Day End: " + day.getEnd()+"</br>";
 	html=html+"Day Length: " + day.getTotalLength() + " min</br>";
+	html += '<div class="statbar">';
 	$.each(ActivityType,function(index,type){
-		html=html+"Day '" + ActivityType[index] + "' Length: " +  day.getLengthByType(index) + " min</br>";
+		html=html+"<div class='"+ ActivityType[index].replace(" ","") +"'style='height:" +  100*day.getLengthByType(index)/day.getTotalLength() + "%;'> </div>";
 		});
+	html += '</div>';
 	$("#stats"+k).html(html);
 	$("#div"+k).html("");
 	for(var i=0;i<day._activities.length;i++){

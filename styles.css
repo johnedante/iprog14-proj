@@ -13,7 +13,23 @@ background: yellow;
 .Discussion {
 background: green;
 }
-
+.droparea {
+height:100px;
+width:180px;
+background:#efefef;
+border-radius:5px;
+border:1px solid #dedede;
+float:left;
+}
+#div1 {
+height:200px;
+}
+.stats {
+}
+.statbar {
+height:80px;
+width:60px;
+}
 #dDView{
 	margin-bottom: 10px;
 }

@@ -8,7 +8,7 @@ var index = 3;
 
 	view.mABtn2.click(function(){
 
-		$('#dragDropView').append('<div id="div'+index+'" class="droparea" style="height:100px;width:180px;border:1px solid black;float:left;">');
+		$('#dragDropView').append('<div id="div'+index+'" class="droparea"></div>');
 		index++;
 		
 		$(init);
