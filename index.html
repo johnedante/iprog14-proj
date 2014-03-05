@@ -6,53 +6,45 @@
   <link rel="stylesheet" href="styles.css" type="text/css" />
  </head>
  <body>
+  <header>
+    <p id="headerTxt" class="textObj">THE MEETING AGENDA</p>
+  </header>
+
+  <!-- DROP DRAG VIEW -->
  	<div id="dragDropView">
- 		<button id="mAView">Activity</button>
-		<button id="mAView2">new day</button>
- 		<div id="div1" class="droparea">
- 	<!--		<div id="drag1" class="discussion" style="border:2px dotted red;" >Testa att dra1</div>
- 			<div id="drag2" class="groupwork" style="border:2px dotted red;" >Testa att dra2</div>
- 			<div id="drag3" class="break" style="border:2px dotted red;" >Testa att dra3</div>
- 			<div id="drag4" class="groupwork" style="border:2px dotted red;" >Testa att dra4</div>
- 	-->	</div>
-	<div style="float:left;">
- 		<div id="div2" class="droparea"></div>
-    <div id="stats2" class="stats" style="height:100px;width:180px;"> 	</div>
- 	</div> 	</div>
+    <div id="buttons">
+      <p class="textObj">DAY PLANNER</p>
+      <button id="mAView" class="navBtn">CREATE ACTIVITY</button>
+      <button id="mAView2" class="navBtn">ADD NEW DAY</button>
+    </div>
+ 		<div id="div1" class="droparea"></div>
+	  <div style="float:left;">
+ 		  <div id="div2" class="droparea"></div>
+      <div id="stats2" class="stats" style="height:100px;width:180px;"> 	</div> <!-- TEMPORARY ITEM -->
+ 	  </div>
+  </div>
 
+  <!-- MAKE ACTIVITY VIEW -->
  	<div id="makeActivityView">
-
-
-<!--
- 		<form method="post">
-   -->
+      <p class="textObj">ADD ACTIVITY</p>
     	<input class="mAF" id="nameField" name="name" placeholder="Name">
-    	<input class="mAF" id="lengthField" name="length" placeholder="Length"> min
-
+    	<input class="mAF" id="lengthField" name="length" placeholder="Length"> MIN
         <select id="typeList"  name="Type">
             <option value = "0">Presentation</option>
             <option value = "1">Group Work</option>
             <option value = "2">Discussion</option>
             <option value = "3">Break</option>
         </select>
-
         <input class="mAF" id="descField" name="description" placeholder="Description">
-     		<button id="cancelBtn">Cancel</button>
-    	<button id="saveBtn">Save</button>
-      
-	<!--	</form>
--->
+     		<button id="cancelBtn" class="navBtn">CANCEL</button>
+    	<button id="saveBtn" class="navBtn">SAVE</button>
  	</div>
 
-
- 
- <!--<script src="https://code.jquery.com/jquery.js"></script>   -->
-
+   <!-- SCRIPTS-->
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-   	<script src="js/app.js"></script>
+  <script src="js/app.js"></script>
  	<script src="js/model/model.js"></script>
-
  	<script src="js/views/dragDropView.js"></script>
  	<script src="js/views/makeActivityView.js"></script>
  	<script src="js/controllers/dragDropController.js"></script>

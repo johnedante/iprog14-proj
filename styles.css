@@ -1,37 +1,81 @@
+/* GENERAL CSS */
+
+body {
+	background: #F0FFFF;
+}
+
+
+/* DROP & DRAG SPECIFIC CSS */
+
 .Presentation {
-background: blue;
+	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
+	font-size: 15px;
+	padding: 3px;
+	background:#82CAFF;
+	border-radius:5px;
+	text-align: center;
+	margin:1px 1px 1px 1px;
 }
 
 .GroupWork {
-background: red;
+	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
+	font-size: 15px;
+	padding: 3px;
+	background:#C3FDB8;
+	border-radius:5px;
+	text-align: center;
+	margin:1px 1px 1px 1px;
 }
 
 .Break {
-background: yellow;
+	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
+	font-size: 15px;
+	padding: 3px;
+	background:#F75D59;
+	border-radius:5px;
+	text-align: center;
+	margin:1px 1px 1px 1px;
 }
 
 .Discussion {
-background: green;
+	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
+	font-size: 15px;
+	padding: 3px;
+	background:#FFFFC2;
+	border-radius:5px;
+	text-align: center;
+	margin:1px 1px 1px 1px;
 }
-.droparea {
-height:100px;
-width:180px;
-background:#efefef;
-border-radius:5px;
-border:1px solid #dedede;
-float:left;
+
+.droparea{
+	height:200px;
+	width:180px;
+	background:#ffffff;
+	border-radius:5px;
+	margin-left: 5px;
+	border:2px solid #ADDFFF;
+	float:left;
 }
-#div1 {
-height:200px;
-}
-.stats {
-}
+
 .statbar {
-height:80px;
-width:60px;
+	height:80px;
+	width:60px;
 }
+
+#div1 {
+	height:500px;
+	margin-left: 20px;
+}
+
 #dDView{
 	margin-bottom: 10px;
+}
+
+
+/* MAKE NEW ACTICITY SPECIFIC CSS */
+
+#makeActivityView {
+	width:500px;
 }
 
 input, #typeList{
@@ -41,25 +85,12 @@ input, #typeList{
 	border-radius:5px;
 	border:1px solid #dedede;
 	padding:10px;
-	margin-bottom: 10px;
-	margin-top:3px;
+	margin:3px 0px 10px 20px;
 	font-size:0.9em;
 }
 
-#cancelBtn{
-	width:200px;
-	height:30px;
-	padding:10px;
-	background-color: red;
-
-}
-
-#saveBtn {
-	width:200px;
-	height:30px;
-	padding:10px;
-	background-color: green;
-	margin-bottom: 30px;
+#typeList {
+	width:402px;
 }
 
 #descField {
@@ -74,6 +105,57 @@ input, #typeList{
 	font-size:0.9em;
 }
 
-#makeActivityView {
-	width:500px;
+
+/* BUTTONS */
+
+.navBtn{
+	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
+	font-size: 15px;
+	letter-spacing: -1px;
+	font-weight: bold;
+	text-align: center;
+	width:200px;
+	height:30px;
+	background-color: #659EC7;
+	margin-bottom: 15px;
+	border-radius:5px;
+}
+
+#saveBtn {
+	background-color: green;
+}
+
+#cancelBtn {
+	margin-left: 10px;
+	background-color: red;
+}
+
+#mAView{
+	margin-left: 20px;
+}
+
+#cancelBtn {
+	margin-left: 20px;
+	background-color: red;
+}
+
+
+/* HEADER AND TEXT */
+
+.textObj{
+    color: #659EC7;
+    font-size: 30px;
+    font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
+    letter-spacing: -3px;
+    -webkit-margin-before: 5px;
+	-webkit-margin-after: 5px;
+	margin-left: 20px;
+}
+
+#headerTxt {
+	text-shadow: 2px 3px 3px #292929;
+    font-size: 80px;
+    margin-left: 10px;
+	-webkit-margin-before: 0px;
+	-webkit-margin-after: 0px;
 }
