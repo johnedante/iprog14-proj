@@ -7,10 +7,10 @@ var index = 3;
 	});
 
 	view.mABtn2.click(function(){
-
+		$('#dragDropView').append('<div id="stats'+index+'" class="stats"></div>');
 		$('#dragDropView').append('<div id="div'+index+'" class="droparea"></div>');
+
 		index++;
-		
 		$(init);
 	});
 }

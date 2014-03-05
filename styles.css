@@ -45,11 +45,15 @@ body {
  	float:left;
 }
 
-
-
 .statbar {
+	float:left;
 	height:80px;
  	width:60px;
+}
+
+.daydiv {
+	float:left;
+	width:200px;
 }
  
 #div1 {
