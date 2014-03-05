@@ -15,16 +15,16 @@ $(as);
 $(as);
 function as(){
 var parked = model.parkedActivities;
-	var first= "nullday";
+	var first= "-1.";
 	$("#div1").html("");
 for(var i=0;i<parked.length;i++){
-	var html= '<div id="'+first+i+'" class="'+parked[i].getType().replace(" ", "")+'"> '+parked[i].getLength()+' min '+parked[i].getName()+'</div>';
+	var html= '<div id="'+first+i+'" class="'+parked[i].getType().replace(" ", "")+' act"> '+parked[i].getLength()+' min '+parked[i].getName()+'</div>';
 	$("#div1").append(html);
 	}
 	var k = 0;
 		for(var j = 0;j<model.days.length;j++){
 		var day = model.days[j];
-				first = j+"day";
+				first = j+".";
 	k=j+2;
 	var html="";
 		html=html+"Day Start: " + day.getStart()+"</br>";
@@ -38,7 +38,7 @@ for(var i=0;i<parked.length;i++){
 	$("#stats"+k).html(html);
 	$("#div"+k).html("");
 	for(var i=0;i<day._activities.length;i++){
-	var html= '<div id="'+first+i+'" class="'+day._activities[i].getType().replace(" ", "")+'"> '+day._activities[i].getLength()+' min '+day._activities[i].getName()+'</div>';
+	var html= '<div id="'+first+i+'" class="'+day._activities[i].getType().replace(" ", "")+' act"> '+day._activities[i].getLength()+' min '+day._activities[i].getName()+'</div>';
 	$("#div"+k).append(html);
 	}
 }

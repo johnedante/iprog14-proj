@@ -7,61 +7,50 @@ body {
 
 /* DROP & DRAG SPECIFIC CSS */
 
-.Presentation {
+.act {
 	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
-	font-size: 15px;
-	padding: 0px;
-	background:#82CAFF;
+ 	font-size: 15px;
+ 	padding: 3px;
 	border-radius:5px;
-	text-align: center;
-	margin:1px 1px 1px 1px;
+ 	text-align: center;
+ 	margin:1px 1px 1px 1px;
+	height:20px;
+}
+
+.Presentation {
+ 	background:#82CAFF;
 }
 
 .GroupWork {
-	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
-	font-size: 15px;
-	padding: 0px;
-	background:#C3FDB8;
-	border-radius:5px;
-	text-align: center;
-	margin:1px 1px 1px 1px;
+ 	background:#C3FDB8;
 }
 
 .Break {
-	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
-	font-size: 15px;
-	padding: 0px;
-	background:#F75D59;
-	border-radius:5px;
-	text-align: center;
-	margin:1px 1px 1px 1px;
+ 	background:#F75D59;
 }
 
 .Discussion {
-	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
-	font-size: 15px;
-	padding: 0px;
-	background:#FFFFC2;
-	border-radius:5px;
-	text-align: center;
-	margin:1px 1px 1px 1px;
+ 	background:#FFFFC2;
+ 	
 }
 
-.droparea{
+.droparea {
 	height:200px;
-	width:180px;
-	background:#ffffff;
-	border-radius:5px;
-	margin-left: 5px;
-	border:2px solid #ADDFFF;
-	float:left;
+ 	width:180px;
+ 	background:#ffffff;
+ 	border-radius:5px;
+ 	margin-left: 5px;
+ 	border:2px solid #ADDFFF;
+ 	float:left;
 }
+
+
 
 .statbar {
 	height:80px;
-	width:60px;
+ 	width:60px;
 }
-
+ 
 #div1 {
 	height:500px;
 	margin-left: 20px;
@@ -105,8 +94,8 @@ input, #typeList{
 	font-size:0.9em;
 }
 
-
 /* BUTTONS */
+
 
 .navBtn{
 	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
@@ -130,15 +119,6 @@ input, #typeList{
 	background-color: red;
 }
 
-#mAView{
-	margin-left: 20px;
-}
-
-#cancelBtn {
-	margin-left: 20px;
-	background-color: red;
-}
-
 
 /* HEADER AND TEXT */
 
@@ -158,4 +138,9 @@ input, #typeList{
     margin-left: 10px;
 	-webkit-margin-before: 0px;
 	-webkit-margin-after: 0px;
+
 }
+ 
+ #mAView{
+ 	margin-left: 20px;
+ }
