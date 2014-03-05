@@ -35,7 +35,7 @@ for(var i=0;i<parked.length;i++){
 		$.each(ActivityType,function(index,type){
 			html=html+"<div class='"+ ActivityType[index].replace(" ","") +"'style='height:" +  100*day.getLengthByType(index)/day.getTotalLength() + "%;'> </div>";
 		});
-		html += '</div>';
+		html += '</br></div>';
 		$("#stats"+k).html(html);
 		$("#div"+k).html("");
 		for(var i=0;i<day._activities.length;i++){
