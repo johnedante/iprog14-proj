@@ -10,7 +10,7 @@ body {
 .Presentation {
 	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
 	font-size: 15px;
-	padding: 3px;
+	padding: 0px;
 	background:#82CAFF;
 	border-radius:5px;
 	text-align: center;
@@ -20,7 +20,7 @@ body {
 .GroupWork {
 	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
 	font-size: 15px;
-	padding: 3px;
+	padding: 0px;
 	background:#C3FDB8;
 	border-radius:5px;
 	text-align: center;
@@ -30,7 +30,7 @@ body {
 .Break {
 	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
 	font-size: 15px;
-	padding: 3px;
+	padding: 0px;
 	background:#F75D59;
 	border-radius:5px;
 	text-align: center;
@@ -40,7 +40,7 @@ body {
 .Discussion {
 	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
 	font-size: 15px;
-	padding: 3px;
+	padding: 0px;
 	background:#FFFFC2;
 	border-radius:5px;
 	text-align: center;
