@@ -22,16 +22,17 @@ body {
 }
 
 .GroupWork {
- 	background:#C3FDB8;
+  	background:#F75D59;
 }
 
 .Break {
- 	background:#F75D59;
+
+	background:#FFFFC2;
 }
 
 .Discussion {
- 	background:#FFFFC2;
  	
+ 	background:#C3FDB8;
 }
 
 .droparea {
