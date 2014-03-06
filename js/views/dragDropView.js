@@ -2,7 +2,7 @@ var DragDropView = function (container,model) {
 
 	this.mABtn = container.find('#mAView');
 	this.mABtn2 = container.find('#mAView2');
-	this.timeVal = container.find('#timeField');
+	this.timeVal = container.find('.timeField');
 	model.addObserver(this);
 	
 	
@@ -29,7 +29,7 @@ for(var i=0;i<parked.length;i++){
 				first = j+".";
 		k=j+2;
 		var html='';
-		html=html+'Start time: <input class="timeField" value="'+ day.getStart()+'"></input></br>';
+		html=html+'Start time: <input type="text" class="timeField" value="'+ day.getStart()+'"></input></br>';
 		html=html+"End time: " + day.getEnd()+"</br>";
 		html=html+"Total length: " + day.getTotalLength() + " min</br>";
 		html += '<div class="statbar">';

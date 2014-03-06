@@ -125,7 +125,7 @@ body {
 	width:402px;
 }
 
-#timeField{
+.timeField{
 	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
 	font-size: 15px;
 	text-align: center;
