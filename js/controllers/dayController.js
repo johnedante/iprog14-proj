@@ -16,9 +16,12 @@ var DayController = function(view, model ) {
 		}
 	});
 
-	console.log(view.timeField);
-
-	view.timeField.focusin(function(){
-				console.log("hej");
+	$('.timeField').change(function(){
+				if(view.id==this.id){
+					var time = this.value.split(":");
+					if(time.length<2){time[1]=(0);}
+					console.log(time);
+					model.days[view.id].setStart(parseInt(time[0]),parseInt(time[1]));
+				}
 			});
 }

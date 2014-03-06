@@ -1,9 +1,14 @@
 var DayView = function (container,model) {
 
+	var index=0;
+
 	this.id = model.days.length;
 	model.addDay();		//adds a day to the model
 	
-	this.timeField = container.find('.timeField');
+	$("#start"+parseInt(this.id+2)).html('<p>Start time: <input id="'+this.id+'" class="timeField" value="'+ model.days[this.id].getStart()+'"</input></p>');
+	console.log("#start"+parseInt(this.id+2));
+
+	console.log(this.timeField);
 	this.dayContainer = container.sortable({		//we bind together all divs with the class .droparea and enable drag/drop/sort thanks to jquery
 			connectWith: ".droparea",
 	//		start: function(event, ui) { sta = $(ui.item[0]).position(); console.log(sta); }, 
@@ -13,7 +18,6 @@ var DayView = function (container,model) {
 	//		part of the old positioniong code
 			var it = $(ui.item[0]);
 			var old = it.attr('id');			//checks id of div that is being moved
-			console.log("test: "+old);
 			var od= old.substr(0, old.indexOf('.'));	//div id consists of a day indicator and a position with a . between them
 			if (od<0){od=null;}							//originally called null null but it treated it as a "null" at time and null at other times, changed to -1 and this code-snippet
 			var op= parseInt(old.substr(old.indexOf('.')+1));		//positional information from div id
@@ -24,7 +28,6 @@ var DayView = function (container,model) {
 			//very long code snippet that checks where on the screen the activity is dropped, subtracts the position of the parent, subtracts the border of the parent, subtracts the top margin of the first and/or only activity (i.e. sets it to 0 for the first location) and divide this by the height+padding+margin of the activities to pinpoint the location if it is not the first activity there.. this code has been made so long in order to be able to modify appearance of the web page without losing the functionality of model.moveActivity()
 			var np = it.parent().children().length-1
 			-it.nextUntil("div.ui-sortable-placeholder").length;
-			console.log(od,op,nd,np); 	//prints out the four variables needed for model.moveActivity to make sure that they are correct
 			model.moveActivity(od, op, nd, np); //moveActivity()... for moving activities =)
 	//		$(inner);    no longer used
 			}
@@ -32,14 +35,14 @@ var DayView = function (container,model) {
 
 	model.addObserver(this);
 
+	
 
 	this.update = function() {
 		var day = model.days[this.id]
 		var first = this.id+".";
-		var k=this.id+2;
+		var k=parseInt(this.id+2);
 		var html='';
-		html += '<p>Start time: <input class="timeField" value="'+ day.getStart()+'"</input></p>'
-		+"<p>End time: " + day.getEnd()+"</p>"
+		html += "<p>End time: " + day.getEnd()+"</p>"
 		+"<p>Total length: " + day.getTotalLength() + " min</p>"
 		+'<div class="statbar">';
 		$.each(ActivityType,function(index,type){
@@ -49,7 +52,6 @@ var DayView = function (container,model) {
 		$("#stats"+k).html(html);
 		$("#div"+k).html("");
 		var acttime = day._start;
-		console.log(acttime);
 		for(var i=0;i<day._activities.length;i++){
 			var m = acttime %60;
 			if (m.toString().length==1){m = "0"+m;}

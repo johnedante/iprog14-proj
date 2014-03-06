@@ -244,6 +244,10 @@ function Model(){
 	    listeners.push(listener);
 	};
 	//*** END OBSERVABLE PATTERN ***
+
+	this.makeUpdate = function() {
+		this.notifyObservers();
+	};
 }
 
 // this is the instance of our main model

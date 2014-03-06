@@ -20,6 +20,7 @@ var MakeActivityController = function(view, model ) {
 		}
 
 		$('.mAF').val(""); //resets the values of the inputs
+		model.makeUpdate();
 	});
 
 }
