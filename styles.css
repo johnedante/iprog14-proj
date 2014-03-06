@@ -60,6 +60,7 @@ body {
 	width:80px;
 	border: 1px solid red;
 	margin: -29px auto 0 50px;
+	box-shadow: 0px 1px 4px rgba(0,0,0,0.5);
 }
 
 .daydiv {
@@ -163,3 +164,8 @@ input, #typeList{
  #mAView{
  	margin-left: 20px;
  }
+
+.ui-sortable-helper {
+	border: 1px solid rgba(0,255,125,0.5);
+	box-shadow: 0px 1px 4px rgba(0,0,0,0.5);
+}
