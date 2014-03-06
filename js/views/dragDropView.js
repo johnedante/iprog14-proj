@@ -28,9 +28,9 @@ for(var i=0;i<parked.length;i++){
 				first = j+".";
 		k=j+2;
 		var html='';
-		html=html+"Day Start: " + day.getStart()+"</br>";
-		html=html+"Day End: " + day.getEnd()+"</br>";
-		html=html+"Day Length: " + day.getTotalLength() + " min</br>";
+		html=html+"Start time: " + day.getStart()+"</br>";
+		html=html+"End time: " + day.getEnd()+"</br>";
+		html=html+"Total length: " + day.getTotalLength() + " min</br>";
 		html += '<div class="statbar">';
 		$.each(ActivityType,function(index,type){
 			html=html+"<div class='"+ ActivityType[index].replace(" ","") +"'style='height:" +  100*day.getLengthByType(index)/day.getTotalLength() + "%;'> </div>";
