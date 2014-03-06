@@ -36,7 +36,7 @@ body {
 }
 
 .droparea {
-	height:339px;
+	height:200px;
  	width:180px;
  	background:#ffffff;
  	border-radius:5px;
@@ -67,27 +67,17 @@ body {
 	text-align: center;
 	margin-left: 10px;
 	float:left;
-	width:180px;
+	width:200px;
 }
  
 #div1 {
 	margin-top: 0px;
 	height:500px;
-	margin-left:20px;
+	margin-right:20px;
 }
 
 #dDView{
 	margin-bottom: 10px;
-}
-
-#timeField{
-	border-radius:5px;
-	border:2px solid #ADDFFF;
-	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
- 	font-size: 15px;
-	text-align: center;
-	width: 40px;
-	height: 20px;
 }
 
 
@@ -107,7 +97,7 @@ body {
 	pointer-events: none;
 }
 
-#mAF, #typeList{
+input, #typeList{
 	width:380px;
 	height:40px;
 	background:#efefef;
