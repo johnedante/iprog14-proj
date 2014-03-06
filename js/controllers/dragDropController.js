@@ -15,9 +15,9 @@ var index = 3;
 		makeDay(model);
 	});
 
-	view.timeVal.bind('change', function(){
-		console.log('HELLO');
-	});
+	view.timeVal.change(function(){
+	 	console.log('HELLO');
+	 });
 }
 
 	function makeDay(model) {
