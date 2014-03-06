@@ -38,9 +38,15 @@ for(var i=0;i<parked.length;i++){
 		html += '</div><div class="statline"></div>';		//the end of the stat addition (made for each day)
 		$("#stats"+k).html(html);
 		$("#div"+k).html("");
+		var acttime = day._start;
+		console.log(acttime);
 		for(var i=0;i<day._activities.length;i++){
-			var html= '<div id="'+first+i+'" class="'+day._activities[i].getType().replace(" ", "")+' act"> '+day._activities[i].getLength()+' min '+day._activities[i].getName()+'</div>';
+			var m = acttime %60;
+			if (m.toString().length==1){m = "0"+m;}
+			var time = Math.floor(acttime/60) + ":" + m;
+			var html= '<div id="'+first+i+'" class="'+day._activities[i].getType().replace(" ", "")+' act"> '+time+' '+day._activities[i].getName()+'</div>';
 			$("#div"+k).append(html);
+			acttime += parseInt(day._activities[i].getLength(),10);
 		}				//the end of the div addition (with all the info about the activities for that day)
 	}
 	
