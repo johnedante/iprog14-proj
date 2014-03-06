@@ -1,5 +1,6 @@
 var DayView = function (container,model) {
 
+	model.addDay();		//adds a day to the model
 	this.day = container.sortable({		//we bind together all divs with the class .droparea and enable drag/drop/sort thanks to jquery
 			connectWith: ".droparea",
 	//		start: function(event, ui) { sta = $(ui.item[0]).position(); console.log(sta); }, 
