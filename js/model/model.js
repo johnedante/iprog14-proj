@@ -140,9 +140,9 @@ function Day(startH,startM) {
 	// this method will be called when needed from the model
 	// don't call it directly
 	this._moveActivity = function(oldposition,newposition) {
-		if(newposition > oldposition) {
+		/*if(newposition > oldposition) {
 			newposition--;
-		}
+		}*/ //But.. But.. WHYYYYYYY?! This only pushes the activity one slot above the intended when its dropped... Useless and ruins the functionality
 		var activity = this._removeActivity(oldposition);
 		this._addActivity(activity, newposition);
 	};
