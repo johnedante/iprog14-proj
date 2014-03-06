@@ -1,7 +1,8 @@
 /* GENERAL CSS */
 
 body {
-	background: #F0FFFF;
+	background: url('http://themebiotic.com/webstudio/sites/default/files/Office-blurred.jpg') #F0FFFF;
+
 }
 
 
@@ -92,7 +93,19 @@ body {
 	left: calc(50% - 250px);
 }
 
+#dragDropView {
+	height: 100%;
+	padding-left:20px;
+}
+
+#buttons p, #buttons button {
+	margin-left:0;
+}
+
+
 .blurry {
+	filter: blur(4px);
+	-moz-filter: blur(4px);
 	-webkit-filter: blur(4px);
 	pointer-events: none;
 }
@@ -145,9 +158,10 @@ body {
 	text-align: center;
 	width:200px;
 	height:30px;
-	background-color: #659EC7;
+	background-color: #82B490;
 	margin-bottom: 15px;
 	border-radius:5px;
+	border:1px solid #B7E0FD;
 }
 
 #saveBtn {
@@ -163,7 +177,8 @@ body {
 /* HEADER AND TEXT */
 
 .textObj{
-    color: #659EC7;
+	text-shadow: 1px 1px 3px black;
+    color: #B7E0FD;
     font-size: 30px;
     font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
     letter-spacing: -3px;
