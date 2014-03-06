@@ -16,6 +16,13 @@ body {
  	text-align: center;
  	margin:1px 1px 1px 1px;
 	height:20px;
+
+	transition: margin 0.2s, box-shadow 0.2s;
+}
+
+act:hover {
+	margin-right: 8px;
+	box-shadow: 5px 0px 5px rgba(0,0,0,0.3);
 }
 
 .Presentation {
@@ -41,7 +48,7 @@ body {
  	width:180px;
  	background:#ffffff;
  	border-radius:5px;
- 	margin-top: 5px;
+ 	margin-top: 1px;
  	border:2px solid #ADDFFF;
  	float:left;
 }
@@ -56,12 +63,22 @@ body {
 }
 
 .statline {
-	float:left;
+	float:relative;
 	height:0;
 	width:80px;
 	border: 1px solid red;
-	margin: -29px auto 0 50px;
+	margin: 63px auto 0 50px;
 	box-shadow: 0px 1px 4px rgba(0,0,0,0.5);
+}
+
+.stats {
+		text-align: left;
+ }
+
+
+ .stats p{
+	margin:0 0 0 20%;
+	padding:0;
 }
 
 .daydiv {
@@ -110,7 +127,7 @@ body {
 	pointer-events: none;
 }
 
-#mAF, #typeList{
+.mAF, #typeList{
 	width:380px;
 	height:40px;
 	background:#efefef;
@@ -162,6 +179,12 @@ body {
 	margin-bottom: 15px;
 	border-radius:5px;
 	border:1px solid #B7E0FD;
+
+	transition: background-color 0.2s;
+}
+
+.navBtn:hover {
+	background-color:#eee;
 }
 
 #saveBtn {
@@ -202,5 +225,14 @@ body {
 
 .ui-sortable-helper {
 	border: 1px solid rgba(0,255,125,0.5);
-	box-shadow: 0px 1px 4px rgba(0,0,0,0.5);
+
+	box-shadow: 0px 1px 4px rgba(0,0,0,0.5) !important;
+	margin:0 !important;
+	-webkit-transform:rotate(-2deg);
+}
+
+.ui-sortable-placeholder {
+	visibility: visible !important;
+	border: 1px dashed #333;
+	background: none;
 }

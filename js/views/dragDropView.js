@@ -29,12 +29,12 @@ for(var i=0;i<parked.length;i++){
 				first = j+".";
 		k=j+2;
 		var html='';
-		html=html+'Start time: <input type="text" class="timeField" value="'+ day.getStart()+'"></input></br>';
-		html=html+"End time: " + day.getEnd()+"</br>";
-		html=html+"Total length: " + day.getTotalLength() + " min</br>";
-		html += '<div class="statbar">';
+		html += '<p>Start time: <input id="timeField" value="'+ day.getStart()+'"</input></p>'
+ 		+"<p>End time: " + day.getEnd()+"</p>"
+ 		+"<p>Total length: " + day.getTotalLength() + " min</p>"
+ 		+'<div class="statbar">';
 		$.each(ActivityType,function(index,type){
-			html=html+"<div class='"+ ActivityType[index].replace(" ","") +"'style='height:" +  100*day.getLengthByType(index)/day.getTotalLength() + "%;'> </div>";
+			html+="<div class='"+ ActivityType[index].replace(" ","") +"'style='height:" +  100*day.getLengthByType(index)/day.getTotalLength() + "%;'> </div>";
 		});
 		html += '</div><div class="statline"></div>';		//the end of the stat addition (made for each day)
 		$("#stats"+k).html(html);

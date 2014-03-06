@@ -15,9 +15,8 @@ var index = 3;
 		makeDay(model);
 	});
 
-	view.timeVal.change(function(){
-	 	console.log('HELLO');
-	 });
+	view.timeVal.on("click", function () { alert('test'); });
+
 }
 
 	function makeDay(model) {
