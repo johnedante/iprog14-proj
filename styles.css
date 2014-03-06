@@ -54,6 +54,14 @@ body {
  	border:2px solid #ADDFFF;
 }
 
+.statline {
+	float:left;
+	height:0;
+	width:80px;
+	border: 1px solid red;
+	margin: -29px auto 0 50px;
+}
+
 .daydiv {
 	text-align: center;
 	margin-left: 10px;
