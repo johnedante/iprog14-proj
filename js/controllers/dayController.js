@@ -1,6 +1,6 @@
 var DayController = function(view, model ) {
 
-	view.day.disableSelection().click( function(event, ui){
+	view.dayContainer.disableSelection().click( function(event, ui){
 		var it = $(event.target);
 		if(it.hasClass('act')){
 			var old = it.attr('id');			//checks id of div that is being moved
@@ -15,4 +15,10 @@ var DayController = function(view, model ) {
 			$('#makeActivityView').show();
 		}
 	});
+
+	console.log(view.timeField);
+
+	view.timeField.focusin(function(){
+				console.log("hej");
+			});
 }

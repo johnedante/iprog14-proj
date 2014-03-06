@@ -1,5 +1,13 @@
 var DragDropController = function(view, model ) {
-var index = 3;
+var index = 2;
+
+	$('#dragDropView').append('<div id="daydiv'+index+'" class="daydiv"></div>');
+	$('#daydiv'+index).append('<div id="stats'+index+'" class="stats"></div>');
+	$('#daydiv'+index).append('<div id="div'+index+'" class="droparea"></div>');
+	index++;
+	makeDay(model); // Creates first Day on load
+
+	createTestData(); // This creates testdata
 
 	view.mABtn.click(function(){	//switches views
 		$('#dragDropView').addClass('blurry');
@@ -15,9 +23,7 @@ var index = 3;
 		makeDay(model);
 	});
 
-	view.timeVal.bind('change', function(){
-		console.log('HELLO');
-	});
+
 }
 
 	function makeDay(model) {

@@ -11,7 +11,7 @@ var MakeActivityView = function (container,model) {
 			if (model.actvar[0]==null){
 				var act = model.parkedActivities[model.actvar[1]]}
 				else {
-		var act = model.days[model.actvar[0]]._activities[model.actvar[1]];}	
+		var act = model.days[model.actvar[0]]._activities[model.actvar[1]];}
 	 $("#nameField").val(act.getName());		//populates the input fields after having found the proper activity
 	 $("#lengthField").val(act.getLength());
 	 $("#typeList").val(act.getTypeId());

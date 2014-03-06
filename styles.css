@@ -142,7 +142,7 @@ body {
 	width:402px;
 }
 
-#timeField{
+.timeField{
 	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
 	font-size: 15px;
 	text-align: center;
@@ -225,7 +225,7 @@ body {
 
 .ui-sortable-helper {
 	border: 1px solid rgba(0,255,125,0.5);
-	box-shadow: 0px 1px 4px rgba(0,0,0,0.5) !important;
+	box-shadow: 1px 1px 8px rgba(0,0,0,0.5) !important;
 	margin:0 !important;
 	-webkit-transform:rotate(-2deg);
 }

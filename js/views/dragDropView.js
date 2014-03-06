@@ -2,7 +2,6 @@ var DragDropView = function (container,model) {
 
 	this.mABtn = container.find('#mAView');
 	this.mABtn2 = container.find('#mAView2');
-	this.timeVal = container.find('#timeField');
 	model.addObserver(this);
 	
 	
@@ -19,17 +18,17 @@ var parked = model.parkedActivities;	//runs through all parked activities and ad
 	var first= "-1.";
 	$("#div1").html("");
 for(var i=0;i<parked.length;i++){
-		html='<div id="'+first+i+'" class="'+parked[i].getType().replace(" ", "")+' act"> '+parked[i].getLength()+' min '+parked[i].getName()+'</div>';
+		var html='<div id="'+first+i+'" class="'+parked[i].getType().replace(" ", "")+' act"> '+parked[i].getLength()+' min '+parked[i].getName()+'</div>';
 		$("#div1").append(html);
 	}
 //runs through all days, creates divs for all scheduled activities as well as adding the stats for them
-	var k = 0;
+	/*var k = 0;
 		for(var j = 0;j<model.days.length;j++){
 		var day = model.days[j];
 				first = j+".";
 		k=j+2;
 		var html='';
-		html += '<p>Start time: <input id="timeField" value="'+ day.getStart()+'"</input></p>'
+		html += '<p>Start time: <input class="timeField" value="'+ day.getStart()+'"</input></p>'
 		+"<p>End time: " + day.getEnd()+"</p>"
 		+"<p>Total length: " + day.getTotalLength() + " min</p>"
 		+'<div class="statbar">';
@@ -49,6 +48,6 @@ for(var i=0;i<parked.length;i++){
 			$("#div"+k).append(html);
 			acttime += parseInt(day._activities[i].getLength(),10);
 		}				//the end of the div addition (with all the info about the activities for that day)
-	}
+	}*/
 	
 }

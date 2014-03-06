@@ -249,12 +249,12 @@ function Model(){
 // this is the instance of our main model
 // this is what you should use in your application
 var model = new Model();
-createTestData();
+//createTestData();
 //model.addActivity(new Activity("Introduction",10,0,""));
 //model.addDay();
 // you can use this method to create some test data and test your implementation
 function createTestData(){
-	model.addDay();
+	//model.addDay();
 	model.addActivity(new Activity("Introduction",10,0,""),0);
 	model.addActivity(new Activity("Idea 1",30,0,""),0);
 	model.addActivity(new Activity("Working in groups",35,1,""),0);
@@ -264,7 +264,7 @@ function createTestData(){
 	console.log("Day Start: " + model.days[0].getStart());
 	console.log("Day End: " + model.days[0].getEnd());
 	console.log("Day Length: " + model.days[0].getTotalLength() + " min");
-	$.each(ActivityType,function(index,type){
+	/*$.each(ActivityType,function(index,type){
 		console.log("Day '" + ActivityType[index] + "' Length: " +  model.days[0].getLengthByType(index) + " min");
-	});
+	});*/
 }
