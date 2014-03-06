@@ -1,5 +1,4 @@
 // JavaScript Document
-
 // The possible activity types
 var ActivityType = ["Presentation","Group Work","Discussion","Break"]
 
@@ -151,9 +150,27 @@ function Day(startH,startM) {
 
 // this is our main module that contians days and praked activites
 function Model(){
+	this.actvar = ["none", "none"]; //contains information about activity position in case of modification
 	this.days = [];
 	this.parkedActivities = [];
 	
+	this.modifyActivity = function (d,p) { //changes actvar and notifies observers
+		this.actvar = [d,p];
+		this.notifyObservers();
+	}
+	this.modActivity = function (activity,d,p) { //removes the loaded activity and adds the same activity with the changes
+
+		if (d==null){
+			this.removeParkedActivity(p);
+			this.addActivity(activity,d,p);
+		}
+		else{
+			this.days[d]._removeActivity(p);
+			this.addActivity(activity,d,p);	
+
+		}
+		this.notifyObservers();
+	}
 	// adds a new day. if startH and startM (start hours and minutes)
 	// are not provided it will set the default start of the day to 08:00
 	this.addDay = function (startH,startM) {
