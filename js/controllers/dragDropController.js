@@ -14,8 +14,6 @@ var index = 3;
 		index++;
 		makeDay(model);
 	});
-
-	makeDay(model);
 }
 
 	function makeDay(model) {
