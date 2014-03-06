@@ -2,13 +2,13 @@ var MakeActivityController = function(view, model ) {
 
 	view.dDBtn.click(function(){	//changes views without changing the model
 		$('#makeActivityView').hide();
-		$('#dragDropView').show();
+		$('#dragDropView').removeClass('blurry');
 		
 	});
 
 	view.dDBtn2.click(function(){	//changes views after having changed the model
 		$('#makeActivityView').hide();
-		$('#dragDropView').show();
+		$('#dragDropView').removeClass('blurry');
 		var av= model.actvar;  
 		console.log(av);
 		model.actvar = ["none","none"];

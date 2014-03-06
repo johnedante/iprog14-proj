@@ -2,7 +2,7 @@ var DragDropController = function(view, model ) {
 var index = 3;
 
 	view.mABtn.click(function(){	//switches views
-		$('#dragDropView').hide();
+		$('#dragDropView').addClass('blurry');
 		$('#makeActivityView').show();
 	});
 

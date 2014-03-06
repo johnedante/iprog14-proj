@@ -84,7 +84,17 @@ body {
 /* MAKE NEW ACTICITY SPECIFIC CSS */
 
 #makeActivityView {
+	height: 420px;
 	width:500px;
+	position:absolute;
+	z-index: 1000;
+	top: calc(50% - 210px);
+	left: calc(50% - 250px);
+}
+
+.blurry {
+	-webkit-filter: blur(4px);
+	pointer-events: none;
 }
 
 input, #typeList{
