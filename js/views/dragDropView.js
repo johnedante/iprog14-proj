@@ -28,7 +28,7 @@ for(var i=0;i<parked.length;i++){
 				first = j+".";
 		k=j+2;
 		var html='';
-		html=html+"Start time: " + day.getStart()+"</br>";
+		html=html+'Start time: <input id="timeField" value="'+ day.getStart()+'"</input></br>';
 		html=html+"End time: " + day.getEnd()+"</br>";
 		html=html+"Total length: " + day.getTotalLength() + " min</br>";
 		html += '<div class="statbar">';
