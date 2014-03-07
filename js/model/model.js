@@ -1,6 +1,7 @@
 // JavaScript Document
 // The possible activity types
 var ActivityType = ["Presentation","Group Work","Discussion","Break"]
+var selectedActivity = null;
 
 // This is an activity constructor
 // When you want to create a new activity you just call
@@ -89,11 +90,19 @@ function Day(startH,startM) {
 	// the end time of the day
 	this.getEnd = function() {
 		var end = this._start + this.getTotalLength();
+		var days = "";
 		var m=end % 60;
+		if(Math.floor(end/(60*24))>0){
+			days+= " +"+Math.floor(end/(60*24))+" day";
+				if(Math.floor(end/(60*24))>1){
+					days+="s";
+				}
+		}
+
 		if (m.toString().length==1){
 		m = "0"+m;
 		}
-		return Math.floor(end/60) + ":" + m;
+		return (Math.floor(end/60))%24 + ":" + m + days;
 	};
 	
 	// returns the string representation Hours:Minutes of 

@@ -12,7 +12,7 @@ var DayController = function(view, model ) {
 			model.modifyActivity(od,op);	//changes the variable model.actvar and tells the listener that it has changed
 			
 			$('#dragDropView').addClass('blurry');
-			$('#makeActivityView').show();
+			$('#makeActivityView').fadeIn();
 		}
 	});
 
@@ -20,8 +20,11 @@ var DayController = function(view, model ) {
 				if(view.id==this.id){
 					var time = this.value.split(":");
 					if(time.length<2){time[1]=(0);}
+					if(parseInt(time[1])>60||parseInt(time[1])<0||parseInt(time[0])>23||parseInt(time[0])<0){this.style.border="2px solid #f69";}else{
+					this.style.border="2px solid #addfff";
 					console.log(time);
 					model.days[view.id].setStart(parseInt(time[0]),parseInt(time[1]));
+				}
 				}
 			});
 }

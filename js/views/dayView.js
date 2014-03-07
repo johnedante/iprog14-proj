@@ -1,19 +1,24 @@
 var DayView = function (container,model) {
 
 	var index=0;
+	var sortableIn = 1;
 
 	this.id = model.days.length;
 	model.addDay();		//adds a day to the model
 	
-	$("#start"+parseInt(this.id+2)).html('<p style="margin-left:10px;"><STRONG>Start time: </STRONG><input id="'+this.id+'" class="timeField" value="'+ model.days[this.id].getStart()+'"</input></p>');
+	$("#start"+parseInt(this.id+2)).html('<p style="margin-left:-28px;"><STRONG>Start time: </STRONG><input id="'+this.id+'" class="timeField" value="'+ model.days[this.id].getStart()+'"</input></p>');
 	console.log("#start"+parseInt(this.id+2));
 
 	console.log(this.timeField);
 	this.dayContainer = container.sortable({		//we bind together all divs with the class .droparea and enable drag/drop/sort thanks to jquery
 			connectWith: ".droparea",
+			connectWith: ".statbar",
 	//		start: function(event, ui) { sta = $(ui.item[0]).position(); console.log(sta); }, 
-	// 		part of the old positioning code   
-			stop: function(event, ui) { 
+	// 		part of the old positioning code 
+			stop: function(event, ui) {
+			if (sortableIn == 0) { 
+	        	ui.item.remove();
+	        	}else{
 	//		sto = $(ui.item[0]).position(); 
 	//		part of the old positioniong code
 			var it = $(ui.item[0]);
@@ -30,8 +35,19 @@ var DayView = function (container,model) {
 			-it.nextUntil("div.ui-sortable-placeholder").length;
 			model.moveActivity(od, op, nd, np); //moveActivity()... for moving activities =)
 	//		$(inner);    no longer used
-			}
+			}}
 		});
+	
+	/*this.deleteContainer = $(".statbar").sortable({
+		connectWith: ".droparea",
+		connectWith: ".statbar",
+		over: function(event, ui){
+			sortableIn=0;console.log("jajajaja");
+		}, 
+		out: function(event, ui){
+			sortableIn=1;
+		}
+		});*/
 
 	model.addObserver(this);
 

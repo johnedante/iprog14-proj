@@ -3,7 +3,8 @@ var MakeActivityController = function(view, model ) {
 	view.dDBtn.click(function(){	//changes views without changing the model
 		$('#makeActivityView').fadeOut();
 		$('#dragDropView').removeClass('blurry');
-		
+		nameField.style.border="1px solid #dedede";
+		lengthField.style.border="1px solid #dedede";
 	});
 
 	view.dDBtn2.click(function(){	//changes views after having changed the model
@@ -21,10 +22,12 @@ var MakeActivityController = function(view, model ) {
 			}
 
 			$('.mAF').val(""); //resets the values of the inputs
+			nameField.style.border="1px solid #dedede";
+			lengthField.style.border="1px solid #dedede";
 			model.makeUpdate();
 	}
-	if(nameField.value==""){nameField.style.border="1px solid #f69";}else{nameField.style.border="1px solid #dedede";}
-	if(lengthField.value<1){lengthField.style.border="1px solid #f69";}else{lengthField.style.border="1px solid #dedede";}
+	else{ if(nameField.value==""){nameField.style.border="1px solid #f69";}else{nameField.style.border="1px solid #dedede";}
+	if(lengthField.value<1){lengthField.style.border="1px solid #f69";}else{lengthField.style.border="1px solid #dedede";}}
 	});
 
 }
