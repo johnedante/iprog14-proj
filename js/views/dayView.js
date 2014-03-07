@@ -12,13 +12,13 @@ var DayView = function (container,model) {
 	console.log(this.timeField);
 	this.dayContainer = container.sortable({		//we bind together all divs with the class .droparea and enable drag/drop/sort thanks to jquery
 			connectWith: ".droparea",
-			connectWith: ".statbar",
+			//connectWith: ".statbar",
 	//		start: function(event, ui) { sta = $(ui.item[0]).position(); console.log(sta); }, 
 	// 		part of the old positioning code 
 			stop: function(event, ui) {
-			if (sortableIn == 0) { 
+			/*if (sortableIn == 0) { 
 	        	ui.item.remove();
-	        	}else{
+	        	}else{*/
 	//		sto = $(ui.item[0]).position(); 
 	//		part of the old positioniong code
 			var it = $(ui.item[0]);
@@ -35,7 +35,7 @@ var DayView = function (container,model) {
 			-it.nextUntil("div.ui-sortable-placeholder").length;
 			model.moveActivity(od, op, nd, np); //moveActivity()... for moving activities =)
 	//		$(inner);    no longer used
-			}}
+			}//}
 		});
 	
 	/*this.deleteContainer = $(".statbar").sortable({

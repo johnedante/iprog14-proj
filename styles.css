@@ -2,7 +2,8 @@
 
 body {
 	background: url('http://themebiotic.com/webstudio/sites/default/files/Office-blurred.jpg') #F0FFFF;
-
+	padding:0;
+	margin:0;
 }
 
 
@@ -108,13 +109,21 @@ body {
 
 /* MAKE NEW ACTICITY SPECIFIC CSS */
 
-#makeActivityView {
+#actPopUp {
 	height: 420px;
 	width:500px;
 	position:absolute;
 	z-index: 1000;
 	top: calc(50% - 210px);
 	left: calc(50% - 250px);
+}
+
+#makeActivityView {
+	position:absolute;
+	top:0;
+	width:100%;
+	height:100vh;
+	background-color: rgba(0,0,0,0.3);
 }
 
 #dragDropView {
@@ -208,7 +217,7 @@ body {
 }
 
 #cancelBtn {
-	margin-left: 10px;
+	margin-left:19px;
 	background-color: red;
 }
 
@@ -233,6 +242,11 @@ body {
 	-webkit-margin-before: 0px;
 	-webkit-margin-after: 0px;
 
+}
+
+header{
+	position:relative;
+	z-index:10000;
 }
  
  #mAView{
