@@ -12,7 +12,7 @@ var index = 2;
 
 	view.mABtn.click(function(){	//switches views
 		$('#dragDropView').addClass('blurry');
-		$('#makeActivityView').show();
+		$('#makeActivityView').fadeIn();
 	});
 
 	view.mABtn2.click(function(){  //creates new days and divs to hold the activities for those days and connects them with .sortable()
