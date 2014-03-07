@@ -133,7 +133,7 @@ body {
 	pointer-events: none;
 }
 
-#mAF, #typeList{
+.mAF, #typeList{
 	width:380px;
 	height:40px;
 	background:#efefef;
