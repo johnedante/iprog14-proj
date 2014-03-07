@@ -15,7 +15,7 @@ body {
 	border-radius:5px;
  	text-align: center;
  	margin:1px 1px 1px 1px;
-	height:20px;
+	min-height:20px;
 
 	transition: margin 0.2s, box-shadow 0.2s;
 }
@@ -44,6 +44,8 @@ body {
 }
 
 .droparea {
+	overflow-y:auto;
+	overflow-x:hidden;
 	height:344px;
  	width:180px;
  	background:#ffffff;
@@ -51,6 +53,10 @@ body {
  	margin-top: 1px;
  	border:2px solid #ADDFFF;
  	float:left;
+}
+
+.droparea p{
+	pointer-events:none;
 }
 
 .statbar {

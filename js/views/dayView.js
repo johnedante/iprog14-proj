@@ -5,7 +5,7 @@ var DayView = function (container,model) {
 	this.id = model.days.length;
 	model.addDay();		//adds a day to the model
 	
-	$("#start"+parseInt(this.id+2)).html('<p>Start time: <input id="'+this.id+'" class="timeField" value="'+ model.days[this.id].getStart()+'"</input></p>');
+	$("#start"+parseInt(this.id+2)).html('<p style="margin-left:10px;"><STRONG>Start time: </STRONG><input id="'+this.id+'" class="timeField" value="'+ model.days[this.id].getStart()+'"</input></p>');
 	console.log("#start"+parseInt(this.id+2));
 
 	console.log(this.timeField);
@@ -42,8 +42,8 @@ var DayView = function (container,model) {
 		var first = this.id+".";
 		var k=parseInt(this.id+2);
 		var html='';
-		html += "<p>End time: " + day.getEnd()+"</p>"
-		+"<p>Total length: " + day.getTotalLength() + " min</p>"
+		html += "<p><STRONG>End time: </STRONG>" + day.getEnd()+"</p>"
+		+"<p><STRONG>Total length: </STRONG>" + day.getTotalLength() + " min</p>"
 		+'<div class="statbar">';
 		$.each(ActivityType,function(index,type){
 			html+="<div class='"+ ActivityType[index].replace(" ","") +"'style='height:" +  100*day.getLengthByType(index)/day.getTotalLength() + "%;'> </div>";
@@ -56,7 +56,7 @@ var DayView = function (container,model) {
 			var m = acttime %60;
 			if (m.toString().length==1){m = "0"+m;}
 			var time = Math.floor(acttime/60) + ":" + m;
-			var html= '<div id="'+first+i+'" class="'+day._activities[i].getType().replace(" ", "")+' act"> '+time+' '+day._activities[i].getName()+'</div>';
+			var html= '<div id="'+first+i+'" class="'+day._activities[i].getType().replace(" ", "")+' act"><p style="float:left;margin:0;"><STRONG>'+day._activities[i].getName()+'</strong></p> <p style="float:right;margin:0;">'+time+'</p></div>';
 			$("#div"+k).append(html);
 			acttime += parseInt(day._activities[i].getLength(),10);
 		}
