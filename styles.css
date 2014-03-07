@@ -1,70 +1,104 @@
 /* GENERAL CSS */
 
 body {
-	background: #F0FFFF;
+	background: url('http://themebiotic.com/webstudio/sites/default/files/Office-blurred.jpg') #F0FFFF;
+
 }
 
 
 /* DROP & DRAG SPECIFIC CSS */
 
-.Presentation {
+.act {
 	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
-	font-size: 15px;
-	padding: 3px;
-	background:#82CAFF;
+ 	font-size: 15px;
+ 	padding: 3px;
 	border-radius:5px;
-	text-align: center;
-	margin:1px 1px 1px 1px;
+ 	text-align: center;
+ 	margin:1px 1px 1px 1px;
+	min-height:20px;
+
+	transition: margin 0.2s, box-shadow 0.2s;
+}
+
+.act:hover {
+	margin-right: 8px;
+	box-shadow: 5px 0px 5px rgba(0,0,0,0.3);
+}
+
+.Presentation {
+ 	background:#82CAFF;
 }
 
 .GroupWork {
-	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
-	font-size: 15px;
-	padding: 3px;
-	background:#C3FDB8;
-	border-radius:5px;
-	text-align: center;
-	margin:1px 1px 1px 1px;
+  	background:#F75D59;
 }
 
 .Break {
-	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
-	font-size: 15px;
-	padding: 3px;
-	background:#F75D59;
-	border-radius:5px;
-	text-align: center;
-	margin:1px 1px 1px 1px;
+
+	background:#FFFFC2;
 }
 
 .Discussion {
-	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
-	font-size: 15px;
-	padding: 3px;
-	background:#FFFFC2;
-	border-radius:5px;
-	text-align: center;
-	margin:1px 1px 1px 1px;
+ 	
+ 	background:#C3FDB8;
 }
 
-.droparea{
-	height:200px;
-	width:180px;
-	background:#ffffff;
-	border-radius:5px;
-	margin-left: 5px;
-	border:2px solid #ADDFFF;
-	float:left;
+.droparea {
+	overflow-y:auto;
+	overflow-x:hidden;
+	height:344px;
+ 	width:180px;
+ 	background:#ffffff;
+ 	border-radius:5px;
+ 	margin-top: 1px;
+ 	border:2px solid #ADDFFF;
+ 	float:left;
+}
+
+.droparea p{
+	pointer-events:none;
 }
 
 .statbar {
+	float:left;
 	height:80px;
-	width:60px;
+	margin: 5px 0px 5px 60px;
+ 	width:60px;
+ 	border-radius:5px;
+ 	border:2px solid #ADDFFF;
 }
 
+.statline {
+	position:relative;
+	height:0;
+	width:80px;
+	border: 1px solid red;
+	margin: 63px auto 0 50px;
+	box-shadow: 0px 1px 4px rgba(0,0,0,0.5);
+}
+
+.stats {
+	text-align: left;
+}
+
+
+.stats p{
+	margin:0 0 0 20%;
+	padding:0;
+}
+
+.daydiv {
+	text-align: center;
+	margin-left: 10px;
+	float:left;
+	width:180	px;
+	margin-bottom: 20px;
+}
+ 
 #div1 {
+	margin-top: 0px;
 	height:500px;
-	margin-left: 20px;
+	margin-left:20px;
 }
 
 #dDView{
@@ -75,10 +109,37 @@ body {
 /* MAKE NEW ACTICITY SPECIFIC CSS */
 
 #makeActivityView {
+	height: 420px;
 	width:500px;
+	position:absolute;
+	z-index: 1000;
+	top: calc(50% - 210px);
+	left: calc(50% - 250px);
 }
 
-input, #typeList{
+#dragDropView {
+	height: 100%;
+	padding-left:20px;
+}
+
+#dragDropField {
+	width:1288px;
+	margin: 0 auto;
+}
+
+#buttons p, #buttons button {
+	margin-left:0;
+}
+
+
+.blurry {
+	filter: blur(4px);
+	-moz-filter: blur(4px);
+	-webkit-filter: blur(4px);
+	pointer-events: none;
+}
+
+.mAF, #typeList{
 	width:380px;
 	height:40px;
 	background:#efefef;
@@ -93,6 +154,16 @@ input, #typeList{
 	width:402px;
 }
 
+.timeField{
+	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
+	font-size: 15px;
+	text-align: center;
+	width: 40px;
+	height: 15px;
+	border-radius:5px;
+ 	border:2px solid #ADDFFF;
+}
+
 #descField {
 	width:380px;
 	height:90px;
@@ -105,8 +176,8 @@ input, #typeList{
 	font-size:0.9em;
 }
 
-
 /* BUTTONS */
+
 
 .navBtn{
 	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
@@ -116,9 +187,16 @@ input, #typeList{
 	text-align: center;
 	width:200px;
 	height:30px;
-	background-color: #659EC7;
+	background-color: #82B490;
 	margin-bottom: 15px;
 	border-radius:5px;
+	border:1px solid #B7E0FD;
+
+	transition: background-color 0.2s;
+}
+
+.navBtn:hover {
+	background-color:#eee;
 }
 
 #saveBtn {
@@ -130,20 +208,12 @@ input, #typeList{
 	background-color: red;
 }
 
-#mAView{
-	margin-left: 20px;
-}
-
-#cancelBtn {
-	margin-left: 20px;
-	background-color: red;
-}
-
 
 /* HEADER AND TEXT */
 
 .textObj{
-    color: #659EC7;
+	text-shadow: 1px 1px 3px black;
+    color: #B7E0FD;
     font-size: 30px;
     font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
     letter-spacing: -3px;
@@ -158,4 +228,27 @@ input, #typeList{
     margin-left: 10px;
 	-webkit-margin-before: 0px;
 	-webkit-margin-after: 0px;
+
+}
+ 
+ #mAView{
+ 	margin-left: 20px;
+ }
+
+.ui-sortable-helper {
+	border: 1px solid rgba(0,255,125,0.5);
+	box-shadow: 1px 1px 8px rgba(0,0,0,0.5) !important;
+	margin:0 !important;
+	-webkit-transform:rotate(-2deg);
+}
+
+.ui-sortable-placeholder {
+	visibility: visible !important;
+	border: 1px dashed #333;
+	background: none;
+}
+
+.start p{
+	margin:0;
+	padding:0;
 }

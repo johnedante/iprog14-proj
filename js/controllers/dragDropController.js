@@ -1,43 +1,35 @@
 var DragDropController = function(view, model ) {
-var index = 3;
+var index = 2;
 
-	view.mABtn.click(function(){
-		$('#dragDropView').hide();
+	$('#dragDropField').append('<div id="daydiv'+index+'" class="daydiv"></div>');
+	$('#daydiv'+index).append('<div id="start'+index+'" class="start"></div>');
+	$('#daydiv'+index).append('<div id="stats'+index+'" class="stats"></div>');
+	$('#daydiv'+index).append('<div id="div'+index+'" class="droparea"></div>');
+	index++;
+	makeDay(model); // Creates first Day on load
+
+	createTestData(); // This creates testdata
+
+	view.mABtn.click(function(){	//switches views
+		$('#dragDropView').addClass('blurry');
 		$('#makeActivityView').show();
 	});
 
-	view.mABtn2.click(function(){
+	view.mABtn2.click(function(){  //creates new days and divs to hold the activities for those days and connects them with .sortable()
+		$('#dragDropField').append('<div id="daydiv'+index+'" class="daydiv"></div>');
+		$('#daydiv'+index).append('<div id="start'+index+'" class="start"></div>');
+		$('#daydiv'+index).append('<div id="stats'+index+'" class="stats"></div>');
+		$('#daydiv'+index).append('<div id="div'+index+'" class="droparea"></div>');
 
-		$('#dragDropView').append('<div id="div'+index+'" class="droparea"></div>');
 		index++;
-		
-		$(init);
+		makeDay(model);
+		model.makeUpdate();
 	});
+
+
 }
 
-		$(init);
-	function init() {
-	model.addDay();
-		$( ".droparea" ).sortable({
-			connectWith: ".droparea",
-			start: function(event, ui) { sta = $(ui.item[0]).position(); console.log(sta); },    
-			stop: function(event, ui) { sto = $(ui.item[0]).position(); console.log(sto); $(inner);}
-		//could use naming system for starting location $(ui.item[0]).attr('id'); but not for stop
-		}).disableSelection();
+	function makeDay(model) {
+		var dayView = new DayView($('.droparea'),model);
+		var dayController = new DayController(dayView,model);
 	}
-	function inner() {
-		var tt = 9;
-		var nt = 20;
-		var ll = 191;
-		var nl = 182;
-		var oldday = (sta.left-ll)/nl;
-		if (oldday<0) {oldday=null};
-		var newday = (sto.left-ll)/nl;
-		if (newday<0) {newday=null};
-		var oldposition = (sta.top-tt)/nt;
-		var newposition = (sto.top-tt)/nt;
-		console.log(oldday, oldposition, newday, newposition);
-		model.moveActivity(oldday, oldposition, newday, newposition);
-		
-		}
-

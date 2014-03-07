@@ -1,5 +1,4 @@
 // JavaScript Document
-
 // The possible activity types
 var ActivityType = ["Presentation","Group Work","Discussion","Break"]
 
@@ -90,13 +89,21 @@ function Day(startH,startM) {
 	// the end time of the day
 	this.getEnd = function() {
 		var end = this._start + this.getTotalLength();
-		return Math.floor(end/60) + ":" + end % 60;
+		var m=end % 60;
+		if (m.toString().length==1){
+		m = "0"+m;
+		}
+		return Math.floor(end/60) + ":" + m;
 	};
 	
 	// returns the string representation Hours:Minutes of 
 	// the start time of the day
 	this.getStart = function() {
-		return Math.floor(this._start/60) + ":" + this._start % 60;
+		var m=this._start % 60;
+		if (m.toString().length==1){
+		m = "0"+m;
+		}
+		return Math.floor(this._start/60) + ":"+ m;
 	};
 	
 	// returns the length (in minutes) of activities of certain type
@@ -132,9 +139,9 @@ function Day(startH,startM) {
 	// this method will be called when needed from the model
 	// don't call it directly
 	this._moveActivity = function(oldposition,newposition) {
-		if(newposition > oldposition) {
+		/*if(newposition > oldposition) {
 			newposition--;
-		}
+		}*/ //But.. But.. WHYYYYYYY?! This only pushes the activity one slot above the intended when its dropped... Useless and ruins the functionality
 		var activity = this._removeActivity(oldposition);
 		this._addActivity(activity, newposition);
 	};
@@ -143,9 +150,27 @@ function Day(startH,startM) {
 
 // this is our main module that contians days and praked activites
 function Model(){
+	this.actvar = ["none", "none"]; //contains information about activity position in case of modification
 	this.days = [];
 	this.parkedActivities = [];
 	
+	this.modifyActivity = function (d,p) { //changes actvar and notifies observers
+		this.actvar = [d,p];
+		this.notifyObservers();
+	}
+	this.modActivity = function (activity,d,p) { //removes the loaded activity and adds the same activity with the changes
+
+		if (d==null){
+			this.removeParkedActivity(p);
+			this.addActivity(activity,d,p);
+		}
+		else{
+			this.days[d]._removeActivity(p);
+			this.addActivity(activity,d,p);	
+
+		}
+		this.notifyObservers();
+	}
 	// adds a new day. if startH and startM (start hours and minutes)
 	// are not provided it will set the default start of the day to 08:00
 	this.addDay = function (startH,startM) {
@@ -219,17 +244,21 @@ function Model(){
 	    listeners.push(listener);
 	};
 	//*** END OBSERVABLE PATTERN ***
+
+	this.makeUpdate = function() {
+		this.notifyObservers();
+	};
 }
 
 // this is the instance of our main model
 // this is what you should use in your application
 var model = new Model();
-createTestData();
+//createTestData();
 //model.addActivity(new Activity("Introduction",10,0,""));
 //model.addDay();
 // you can use this method to create some test data and test your implementation
 function createTestData(){
-	model.addDay();
+	//model.addDay();
 	model.addActivity(new Activity("Introduction",10,0,""),0);
 	model.addActivity(new Activity("Idea 1",30,0,""),0);
 	model.addActivity(new Activity("Working in groups",35,1,""),0);
@@ -239,7 +268,7 @@ function createTestData(){
 	console.log("Day Start: " + model.days[0].getStart());
 	console.log("Day End: " + model.days[0].getEnd());
 	console.log("Day Length: " + model.days[0].getTotalLength() + " min");
-	$.each(ActivityType,function(index,type){
+	/*$.each(ActivityType,function(index,type){
 		console.log("Day '" + ActivityType[index] + "' Length: " +  model.days[0].getLengthByType(index) + " min");
-	});
+	});*/
 }

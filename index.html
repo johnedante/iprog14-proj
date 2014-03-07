@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="styles.css" type="text/css" />
  </head>
  <body>
+
   <header>
     <p id="headerTxt" class="textObj">THE MEETING AGENDA</p>
   </header>
@@ -18,16 +19,15 @@
       <button id="mAView2" class="navBtn">ADD NEW DAY</button>
     </div>
  		<div id="div1" class="droparea"></div>
-	  <div style="float:left;">
- 		  <div id="div2" class="droparea"></div>
-      <div id="stats2" class="stats" style="height:100px;width:180px;"> 	</div> <!-- TEMPORARY ITEM -->
- 	  </div>
+    <img alt="" id="arrowImg" src="http://www.wpclipart.com/signs_symbol/arrows/arrows_color/color_arrows_2/arrow_green_right_T.png" width="50" style="float:left;margin-top:225px;margin-left:-25px;opacity:0.5;"/>
+    <div id="dragDropField"></div>
   </div>
 
   <!-- MAKE ACTIVITY VIEW -->
  	<div id="makeActivityView">
       <p class="textObj">ADD ACTIVITY</p>
     	<input class="mAF" id="nameField" name="name" placeholder="Name">
+
     	<input class="mAF" id="lengthField" name="length" placeholder="Length"> MIN
         <select id="typeList"  name="Type">
             <option value = "0">Presentation</option>
@@ -38,15 +38,23 @@
         <input class="mAF" id="descField" name="description" placeholder="Description">
      		<button id="cancelBtn" class="navBtn">CANCEL</button>
     	<button id="saveBtn" class="navBtn">SAVE</button>
+
+ 	</div>
+
+
+
  	</div>
 
    <!-- SCRIPTS-->
+
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-  <script src="js/app.js"></script>
+	<script src="js/app.js"></script>
  	<script src="js/model/model.js"></script>
+  <script src="js/views/dayView.js"></script>
  	<script src="js/views/dragDropView.js"></script>
  	<script src="js/views/makeActivityView.js"></script>
+  <script src="js/controllers/dayController.js"></script>
  	<script src="js/controllers/dragDropController.js"></script>
  	<script src="js/controllers/makeActivityController.js"></script>
  </body>
