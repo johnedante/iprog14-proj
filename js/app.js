@@ -6,7 +6,5 @@ $(function() {
 
 	var makeActivityView = new MakeActivityView($('#makeActivityView'),model);
 	var makeActivityController = new MakeActivityController(makeActivityView,model);
-
-	$('#makeActivityView').hide();
 	
 });

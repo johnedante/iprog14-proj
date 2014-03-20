@@ -17,18 +17,20 @@
       <p class="textObj">DAY PLANNER</p>
       <button id="mAView" class="navBtn">CREATE ACTIVITY</button>
       <button id="mAView2" class="navBtn">ADD NEW DAY</button>
+      
     </div>
  		<div id="div1" class="droparea"></div>
-    <img alt="" id="arrowImg" src="http://www.wpclipart.com/signs_symbol/arrows/arrows_color/color_arrows_2/arrow_green_right_T.png" width="50" style="float:left;margin-top:225px;margin-left:-25px;opacity:0.5;"/>
+    <!--<img alt="" id="arrowImg" src="http://www.wpclipart.com/signs_symbol/arrows/arrows_color/color_arrows_2/arrow_green_right_T.png" width="50" style="float:left;margin-top:225px;margin-left:-25px;opacity:0.5;"/>-->
     <div id="dragDropField"></div>
   </div>
 
   <!-- MAKE ACTIVITY VIEW -->
  	<div id="makeActivityView">
+    <div id="actPopUp">
       <p class="textObj">ADD ACTIVITY</p>
     	<input class="mAF" id="nameField" name="name" placeholder="Name">
 
-    	<input class="mAF" id="lengthField" name="length" placeholder="Length"> MIN
+    	<input class="mAF" id="lengthField" name="length" placeholder="Length (Minutes)" type="number" min="0">
         <select id="typeList"  name="Type">
             <option value = "0">Presentation</option>
             <option value = "1">Group Work</option>
@@ -38,7 +40,8 @@
         <input class="mAF" id="descField" name="description" placeholder="Description">
      		<button id="cancelBtn" class="navBtn">CANCEL</button>
     	<button id="saveBtn" class="navBtn">SAVE</button>
-
+      <button id="deleteBtn" class="navBtn">DELETE THIS ACTIVITY</button>
+    </div>
  	</div>
 
 

@@ -1,35 +1,51 @@
 var DayView = function (container,model) {
 
 	var index=0;
+	var sortableIn = 1;
 
 	this.id = model.days.length;
-	model.addDay();		//adds a day to the model
+	//adds a day to the model
+	model.addDay();		
 	
-	$("#start"+parseInt(this.id+2)).html('<p style="margin-left:10px;"><STRONG>Start time: </STRONG><input id="'+this.id+'" class="timeField" value="'+ model.days[this.id].getStart()+'"</input></p>');
+	$("#start"+parseInt(this.id+2)).html('<p style="margin-left:-28px;"><STRONG>Start time: </STRONG><input id="'+this.id+'" class="timeField" value="'+ model.days[this.id].getStart()+'"</input></p>');
 	console.log("#start"+parseInt(this.id+2));
 
-	console.log(this.timeField);
-	this.dayContainer = container.sortable({		//we bind together all divs with the class .droparea and enable drag/drop/sort thanks to jquery
+//we bind together all divs with the class .droparea and enable drag/drop/sort thanks to jquery
+	this.dayContainer = container.sortable({		
 			connectWith: ".droparea",
-	//		start: function(event, ui) { sta = $(ui.item[0]).position(); console.log(sta); }, 
-	// 		part of the old positioning code   
-			stop: function(event, ui) { 
-	//		sto = $(ui.item[0]).position(); 
-	//		part of the old positioniong code
+
+			stop: function(event, ui) {
 			var it = $(ui.item[0]);
-			var old = it.attr('id');			//checks id of div that is being moved
-			var od= old.substr(0, old.indexOf('.'));	//div id consists of a day indicator and a position with a . between them
-			if (od<0){od=null;}							//originally called null null but it treated it as a "null" at time and null at other times, changed to -1 and this code-snippet
-			var op= parseInt(old.substr(old.indexOf('.')+1));		//positional information from div id
-			var notold = it.parent().attr('id');		//shows the parent id of the target location
-			var nd = notold.substr(notold.indexOf('v')+1)-2;	//parent id ends with a number which we use to pinpoint the day
-			if (nd<0){nd=null;}									//if the modified number is below 0 we set it to null so that it can go to the parked activities
-			//var np = ($(ui.item[0]).offset().top-$(ui.item[0]).parent().offset().top-parseInt($(".droparea").css("border"),10)-parseInt($(".act").css("margin").charAt(0),10))/(parseInt($(".act").css("height"),10)+2*parseInt($(".act").css("padding"),10)+parseInt($(".act").css("margin"),10));
-			//very long code snippet that checks where on the screen the activity is dropped, subtracts the position of the parent, subtracts the border of the parent, subtracts the top margin of the first and/or only activity (i.e. sets it to 0 for the first location) and divide this by the height+padding+margin of the activities to pinpoint the location if it is not the first activity there.. this code has been made so long in order to be able to modify appearance of the web page without losing the functionality of model.moveActivity()
+			
+			//checks id of div that is being moved
+			var old = it.attr('id');			
+
+			//div id consists of a day indicator and a position with a . between them
+			var od= old.substr(0, old.indexOf('.'));
+			//originally called null null but it treated it as a "null" at time and null at other times, changed to -1 and this code-snippet	
+			if (od<0){
+				od=null;
+			}
+			//positional information from div id							
+			var op= parseInt(old.substr(old.indexOf('.')+1));		
+			//shows the parent id of the target location
+			var notold = it.parent().attr('id');
+			//parent id ends with a number which we use to pinpoint the day		
+			var nd = notold.substr(notold.indexOf('v')+1)-2;
+			//if the modified number is below 0 we set it to null so that it can go to the parked activities	
+			if (nd<0){
+				nd=null;
+			}									
+			
+			//very long code snippet that checks where on the screen the activity is dropped, 
+			//subtracts the position of the parent, subtracts the border of the parent,
+			// subtracts the top margin of the first and/or only activity (i.e. sets it to 0 for the first location) 
+			//and divide this by the height+padding+margin of the activities to pinpoint the location if it is not the first activity there.. 
+			//this code has been made so long in order to be able to modify appearance of the web page without losing the functionality of model.moveActivity()
 			var np = it.parent().children().length-1
 			-it.nextUntil("div.ui-sortable-placeholder").length;
 			model.moveActivity(od, op, nd, np); //moveActivity()... for moving activities =)
-	//		$(inner);    no longer used
+	
 			}
 		});
 
@@ -61,4 +77,11 @@ var DayView = function (container,model) {
 			acttime += parseInt(day._activities[i].getLength(),10);
 		}
 	}
+
+	this.remove = function (){
+		var i = this.id + 2;
+		
+		$("#daydiv"+i).remove();
+	}
+
 }

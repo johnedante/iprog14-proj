@@ -2,7 +2,8 @@
 
 body {
 	background: url('http://themebiotic.com/webstudio/sites/default/files/Office-blurred.jpg') #F0FFFF;
-
+	padding:0;
+	margin:0;
 }
 
 
@@ -16,6 +17,8 @@ body {
  	text-align: center;
  	margin:1px 1px 1px 1px;
 	min-height:20px;
+	cursor: pointer; 
+	cursor: hand;
 
 	transition: margin 0.2s, box-shadow 0.2s;
 }
@@ -23,10 +26,13 @@ body {
 .act:hover {
 	margin-right: 8px;
 	box-shadow: 5px 0px 5px rgba(0,0,0,0.3);
+	cursor: pointer; 
+	cursor: hand;
 }
 
 .Presentation {
  	background:#82CAFF;
+
 }
 
 .GroupWork {
@@ -48,10 +54,10 @@ body {
 	overflow-x:hidden;
 	height:344px;
  	width:180px;
- 	background:#ffffff;
+ 	background:white;
  	border-radius:5px;
  	margin-top: 1px;
- 	border:2px solid #ADDFFF;
+ 	border:2px solid black;
  	float:left;
 }
 
@@ -65,14 +71,14 @@ body {
 	margin: 5px 0px 5px 60px;
  	width:60px;
  	border-radius:5px;
- 	border:2px solid #ADDFFF;
+ 	border:2px solid black;
 }
 
 .statline {
 	position:relative;
 	height:0;
 	width:80px;
-	border: 1px solid red;
+	border: 1px solid black;
 	margin: 63px auto 0 50px;
 	box-shadow: 0px 1px 4px rgba(0,0,0,0.5);
 }
@@ -83,7 +89,7 @@ body {
 
 
 .stats p{
-	margin:0 0 0 20%;
+	margin:0 0 0 10%;
 	padding:0;
 }
 
@@ -91,8 +97,10 @@ body {
 	text-align: center;
 	margin-left: 10px;
 	float:left;
-	width:180	px;
+	width:184px;
 	margin-bottom: 20px;
+	background: white;
+	border-radius:5px;	
 }
  
 #div1 {
@@ -108,18 +116,33 @@ body {
 
 /* MAKE NEW ACTICITY SPECIFIC CSS */
 
-#makeActivityView {
-	height: 420px;
-	width:500px;
+#actPopUp {
+	height: 450px;
+	width:450px;
 	position:absolute;
 	z-index: 1000;
 	top: calc(50% - 210px);
 	left: calc(50% - 250px);
+	background: white;
+	display: block;
+	border:white 2px solid;
+	border-radius:25px;	
+}
+
+#makeActivityView {
+	display:none;
+	position:absolute;
+	top:0;
+	width:100%;
+	height:100vh;
+	background-color: rgba(0,0,0,0.3);
 }
 
 #dragDropView {
 	height: 100%;
 	padding-left:20px;
+
+	transition: -webkit-transform 0.2s;
 }
 
 #dragDropField {
@@ -128,7 +151,9 @@ body {
 }
 
 #buttons p, #buttons button {
-	margin-left:0;
+	margin-left:30;
+	cursor: pointer; 
+	cursor: hand;
 }
 
 
@@ -148,10 +173,14 @@ body {
 	padding:10px;
 	margin:3px 0px 10px 20px;
 	font-size:0.9em;
+
+	transition: background 0.2s;
 }
 
 #typeList {
 	width:402px;
+	cursor: pointer; 
+	cursor: hand;
 }
 
 .timeField{
@@ -161,7 +190,7 @@ body {
 	width: 40px;
 	height: 15px;
 	border-radius:5px;
- 	border:2px solid #ADDFFF;
+ 	border:2px solid black;
 }
 
 #descField {
@@ -185,27 +214,62 @@ body {
 	letter-spacing: -1px;
 	font-weight: bold;
 	text-align: center;
-	width:200px;
+	width:184px;
 	height:30px;
 	background-color: #82B490;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
+	margin-right: 6px;
 	border-radius:5px;
-	border:1px solid #B7E0FD;
+	border:2px solid black;
+	cursor: pointer; 
+	cursor: hand;
+
+	transition: background-color 0.2s;
+}
+
+.delDay{
+	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
+	font-size: 15px;
+	letter-spacing: -1px;
+	font-weight: bold;
+	text-align: center;
+	width:184px;
+	height:30px;
+	background-color: red;
+	margin-right: 6px;
+	border-radius:5px;
+	border:2px solid black;
+	cursor: pointer; 
+	cursor: hand;
 
 	transition: background-color 0.2s;
 }
 
 .navBtn:hover {
 	background-color:#eee;
+	cursor: pointer; 
+	cursor: hand;
 }
 
 #saveBtn {
 	background-color: green;
+	cursor: pointer; 
+	cursor: hand;
 }
 
 #cancelBtn {
-	margin-left: 10px;
+	margin-left:19px;
 	background-color: red;
+	cursor: pointer; 
+	cursor: hand;
+}
+
+#deleteBtn {
+	display:none;
+	margin-left:19px;
+	background-color: red;
+	cursor: pointer; 
+	cursor: hand;
 }
 
 
@@ -219,7 +283,7 @@ body {
     letter-spacing: -3px;
     -webkit-margin-before: 5px;
 	-webkit-margin-after: 5px;
-	margin-left: 20px;
+	margin-left: 10px;
 }
 
 #headerTxt {
@@ -229,6 +293,11 @@ body {
 	-webkit-margin-before: 0px;
 	-webkit-margin-after: 0px;
 
+}
+
+header{
+	position:relative;
+	z-index:10000;
 }
  
  #mAView{

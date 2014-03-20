@@ -5,28 +5,32 @@ var index = 2;
 	$('#daydiv'+index).append('<div id="start'+index+'" class="start"></div>');
 	$('#daydiv'+index).append('<div id="stats'+index+'" class="stats"></div>');
 	$('#daydiv'+index).append('<div id="div'+index+'" class="droparea"></div>');
+
 	index++;
-	makeDay(model); // Creates first Day on load
+	// Creates first Day on load
+	makeDay(model); 
 
-	createTestData(); // This creates testdata
+	// This creates testdata
+	createTestData(); 
 
-	view.mABtn.click(function(){	//switches views
+	//switches views
+	view.mABtn.click(function(){	
 		$('#dragDropView').addClass('blurry');
-		$('#makeActivityView').show();
+		$('#makeActivityView').fadeIn();
 	});
 
-	view.mABtn2.click(function(){  //creates new days and divs to hold the activities for those days and connects them with .sortable()
+	  //creates new days and divs to hold the activities for those days and connects them with .sortable()
+	view.mABtn2.click(function(){
 		$('#dragDropField').append('<div id="daydiv'+index+'" class="daydiv"></div>');
 		$('#daydiv'+index).append('<div id="start'+index+'" class="start"></div>');
 		$('#daydiv'+index).append('<div id="stats'+index+'" class="stats"></div>');
 		$('#daydiv'+index).append('<div id="div'+index+'" class="droparea"></div>');
+		$('#daydiv'+index).append('<button id="deleteDay'+index+'" class="delDay">DELETE DAY</button>');
 
 		index++;
 		makeDay(model);
 		model.makeUpdate();
 	});
-
-
 }
 
 	function makeDay(model) {

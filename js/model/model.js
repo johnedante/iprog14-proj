@@ -1,6 +1,9 @@
 // JavaScript Document
 // The possible activity types
 var ActivityType = ["Presentation","Group Work","Discussion","Break"]
+var selectedActivity = null;
+
+
 
 // This is an activity constructor
 // When you want to create a new activity you just call
@@ -89,11 +92,19 @@ function Day(startH,startM) {
 	// the end time of the day
 	this.getEnd = function() {
 		var end = this._start + this.getTotalLength();
+		var days = "";
 		var m=end % 60;
+		if(Math.floor(end/(60*24))>0){
+			days+= " +"+Math.floor(end/(60*24))+" day";
+				if(Math.floor(end/(60*24))>1){
+					days+="s";
+				}
+		}
+
 		if (m.toString().length==1){
 		m = "0"+m;
 		}
-		return Math.floor(end/60) + ":" + m;
+		return (Math.floor(end/60))%24 + ":" + m + days;
 	};
 	
 	// returns the string representation Hours:Minutes of 
@@ -139,9 +150,6 @@ function Day(startH,startM) {
 	// this method will be called when needed from the model
 	// don't call it directly
 	this._moveActivity = function(oldposition,newposition) {
-		/*if(newposition > oldposition) {
-			newposition--;
-		}*/ //But.. But.. WHYYYYYYY?! This only pushes the activity one slot above the intended when its dropped... Useless and ruins the functionality
 		var activity = this._removeActivity(oldposition);
 		this._addActivity(activity, newposition);
 	};
@@ -152,6 +160,8 @@ function Day(startH,startM) {
 function Model(){
 	this.actvar = ["none", "none"]; //contains information about activity position in case of modification
 	this.days = [];
+	this.removedDays = [];
+	
 	this.parkedActivities = [];
 	
 	this.modifyActivity = function (d,p) { //changes actvar and notifies observers
@@ -171,6 +181,24 @@ function Model(){
 		}
 		this.notifyObservers();
 	}
+	this.removeActivity = function (activity, d, p){
+		var con = false;
+		for(var j = 0; j < this.removedDays.length;j++){
+			if(d == this.removedDays[j] ){
+				con = true;
+				break;
+			}
+		}
+		if(con){
+			
+		}else{
+			if(d == null){
+				return this.removeParkedActivity(p);
+			}else{
+				return this.days[d]._removeActivity(p);
+			}
+		}
+	}
 	// adds a new day. if startH and startM (start hours and minutes)
 	// are not provided it will set the default start of the day to 08:00
 	this.addDay = function (startH,startM) {
@@ -184,15 +212,28 @@ function Model(){
 		this.notifyObservers();
 		return day;
 	};
+
+	
 	
 	// add an activity to model
 	this.addActivity = function (activity,day,position) {
-		if(day != null) {
-			this.days[day]._addActivity(activity,position);
-		} else {
-			this.parkedActivities.push(activity);
+		var con = false;
+		for(var j = 0; j < this.removedDays.length;j++){
+			if(day == this.removedDays[j]){
+				con = true;
+				break;
+			}
 		}
-		this.notifyObservers();
+		if(con){
+			
+		}else{
+			if(day != null) {
+				this.days[day]._addActivity(activity,position);
+			} else {
+				this.parkedActivities.push(activity);
+			}
+			this.notifyObservers();
+		}
 	}
 	
 	// add an activity to parked activities
@@ -207,42 +248,96 @@ function Model(){
 		this.notifyObservers();
 		return act;
 	};
+
+	//Move all activies for a certain day to the activity pool and add the erased day to removedDays.
+	//We need to do continous checks in a lot of the functions belonging to model to make sure that it does not update/access erased days.
+	this.removeDay = function(day){
+		var con = false;
+		for(var j = 0; j < this.removedDays.length;j++){
+			if(day == this.removedDays[j]){
+				con = true;
+				break;
+			}
+		}
+		if(con){
+		}else{
+			var length = this.days[day]._activities.length;
+			for(var i = length-1; i >=0; i--){
+				var activity = this.days[day]._activities[i];
+				this.addParkedActivity(this.removeActivity(activity,day,i));
+			}
+
+			if (day > -1) {
+	    		this.removedDays.push(day);
+			}
+			
+		}
+		this.notifyObservers();
+		
+		
+	}
 	
 	// moves activity between the days, or day and parked activities.
 	// to park activity you need to set the new day to null
 	// to move a parked activity to let's say day 0 you set oldday to null
 	// and new day to 0
 	this.moveActivity = function(oldday, oldposition, newday, newposition) {
-		if(oldday !== null && oldday == newday) {
-			this.days[oldday]._moveActivity(oldposition,newposition);
-		}else if(oldday == null && newday == null) {
-			var activity = this.removeParkedActivity(oldposition);
-			this.addParkedActivity(activity,newposition);
-		}else if(oldday == null) {
-			var activity = this.removeParkedActivity(oldposition);
-			this.days[newday]._addActivity(activity,newposition);
-		}else if(newday == null) {
-			var activity = this.days[oldday]._removeActivity(oldposition);
-			this.addParkedActivity(activity);
-		} else {
-			var activity = this.days[oldday]._removeActivity(oldposition);
-			this.days[newday]._addActivity(activity,newposition);
+		var con = false;
+		for(var j = 0; j < this.removedDays.length;j++){
+			if(oldday == this.removedDays[j] || newday== this.removedDays[j]){
+				con = true;
+				break;
+			}
 		}
-		this.notifyObservers();
+		if(con){
+			
+		}else{
+			if(oldday !== null && oldday == newday) {
+				this.days[oldday]._moveActivity(oldposition,newposition);
+			}else if(oldday == null && newday == null) {
+				var activity = this.removeParkedActivity(oldposition);
+				this.addParkedActivity(activity,newposition);
+			}else if(oldday == null) {
+				var activity = this.removeParkedActivity(oldposition);
+				this.days[newday]._addActivity(activity,newposition);
+			}else if(newday == null) {
+				var activity = this.days[oldday]._removeActivity(oldposition);
+				this.addParkedActivity(activity);
+			} else {
+				var activity = this.days[oldday]._removeActivity(oldposition);
+				this.days[newday]._addActivity(activity,newposition);
+			}
+			this.notifyObservers();
+		}
 	};
+
+	this.amountOfDays = function(){
+		return this.days.length -this.removedDays.length;
+	}
 	
 	//*** OBSERVABLE PATTERN ***
 	var listeners = [];
 	
 	this.notifyObservers = function (args) {
 	    for (var i = 0; i < listeners.length; i++){
-	        listeners[i].update(args);
+			var con = false;
+			for(var j = 0; j < model.removedDays.length;j++){
+				if(i == model.removedDays[j]){
+					con = true;
+					break;
+				}
+			}
+			if(!con){
+		        listeners[i].update(args);
+			}
+	
 	    }
 	};
 	
 	this.addObserver = function (listener) {
 	    listeners.push(listener);
 	};
+	
 	//*** END OBSERVABLE PATTERN ***
 
 	this.makeUpdate = function() {
@@ -253,9 +348,6 @@ function Model(){
 // this is the instance of our main model
 // this is what you should use in your application
 var model = new Model();
-//createTestData();
-//model.addActivity(new Activity("Introduction",10,0,""));
-//model.addDay();
 // you can use this method to create some test data and test your implementation
 function createTestData(){
 	//model.addDay();
@@ -268,7 +360,5 @@ function createTestData(){
 	console.log("Day Start: " + model.days[0].getStart());
 	console.log("Day End: " + model.days[0].getEnd());
 	console.log("Day Length: " + model.days[0].getTotalLength() + " min");
-	/*$.each(ActivityType,function(index,type){
-		console.log("Day '" + ActivityType[index] + "' Length: " +  model.days[0].getLengthByType(index) + " min");
-	});*/
+	
 }
