@@ -21,10 +21,11 @@ var MakeActivityController = function(view, model ) {
 				var av= model.actvar;  
 				
 				model.actvar = ["none","none"];
-				
+				alert(view.id);
 				if (av[0]== "none"){  // if av[0] is "none", then it is a new activity and a new one should be created, otherwise the activity should be modified
 					model.addActivity(new Activity(nameField.value,lengthField.value,typeList.value,descField.value));}
 				else{
+					
 					model.modActivity(new Activity(nameField.value,lengthField.value,typeList.value,descField.value), av[0], av[1]);
 				}
 

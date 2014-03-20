@@ -92,19 +92,19 @@ function Day(startH,startM) {
 	// the end time of the day
 	this.getEnd = function() {
 		var end = this._start + this.getTotalLength();
-		var days = "";
+		var dayz = "";
 		var m=end % 60;
 		if(Math.floor(end/(60*24))>0){
-			days+= " +"+Math.floor(end/(60*24))+" day";
+			dayz+= " +"+Math.floor(end/(60*24))+" day";
 				if(Math.floor(end/(60*24))>1){
-					days+="s";
+					dayz+="s";
 				}
 		}
 
 		if (m.toString().length==1){
 		m = "0"+m;
 		}
-		return (Math.floor(end/60))%24 + ":" + m + days;
+		return (Math.floor(end/60))%24 + ":" + m + dayz;
 	};
 	
 	// returns the string representation Hours:Minutes of 
@@ -189,14 +189,14 @@ function Model(){
 				break;
 			}
 		}
-		if(con){
-			
-		}else{
+		if(!con){
 			if(d == null){
 				return this.removeParkedActivity(p);
 			}else{
 				return this.days[d]._removeActivity(p);
 			}
+			this.notifyObservers();
+			
 		}
 	}
 	// adds a new day. if startH and startM (start hours and minutes)
@@ -264,10 +264,11 @@ function Model(){
 			var length = this.days[day]._activities.length;
 			for(var i = length-1; i >=0; i--){
 				var activity = this.days[day]._activities[i];
-				this.addParkedActivity(this.removeActivity(activity,day,i));
+				this.removeActivity(activity,day,i);
 			}
 
 			if (day > -1) {
+			
 	    		this.removedDays.push(day);
 			}
 			
@@ -282,33 +283,30 @@ function Model(){
 	// to move a parked activity to let's say day 0 you set oldday to null
 	// and new day to 0
 	this.moveActivity = function(oldday, oldposition, newday, newposition) {
-		var con = false;
+		
 		for(var j = 0; j < this.removedDays.length;j++){
 			if(oldday == this.removedDays[j] || newday== this.removedDays[j]){
-				con = true;
-				break;
+				
+				return;
 			}
 		}
-		if(con){
-			
-		}else{
-			if(oldday !== null && oldday == newday) {
-				this.days[oldday]._moveActivity(oldposition,newposition);
-			}else if(oldday == null && newday == null) {
-				var activity = this.removeParkedActivity(oldposition);
-				this.addParkedActivity(activity,newposition);
-			}else if(oldday == null) {
-				var activity = this.removeParkedActivity(oldposition);
-				this.days[newday]._addActivity(activity,newposition);
-			}else if(newday == null) {
-				var activity = this.days[oldday]._removeActivity(oldposition);
-				this.addParkedActivity(activity);
-			} else {
-				var activity = this.days[oldday]._removeActivity(oldposition);
-				this.days[newday]._addActivity(activity,newposition);
-			}
-			this.notifyObservers();
+		if(oldday !== null && oldday == newday) {
+			this.days[oldday]._moveActivity(oldposition,newposition);
+		}else if(oldday == null && newday == null) {
+			var activity = this.removeParkedActivity(oldposition);
+			this.addParkedActivity(activity,newposition);
+		}else if(oldday == null) {
+			var activity = this.removeParkedActivity(oldposition);
+			this.days[newday]._addActivity(activity,newposition);
+		}else if(newday == null) {
+			var activity = this.days[oldday]._removeActivity(oldposition);
+			this.addParkedActivity(activity);
+		} else {
+			var activity = this.days[oldday]._removeActivity(oldposition);
+			this.days[newday]._addActivity(activity,newposition);
 		}
+		this.notifyObservers();
+
 	};
 
 	this.amountOfDays = function(){
