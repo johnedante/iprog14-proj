@@ -180,6 +180,13 @@ function Model(){
 		}
 		this.notifyObservers();
 	}
+	this.removeActivity = function (activity, d, p){
+		if(d == null){
+			this.removeParkedActivity(p);
+		}else{
+			this.days[d]._removeActivity(p);
+		}
+	}
 	// adds a new day. if startH and startM (start hours and minutes)
 	// are not provided it will set the default start of the day to 08:00
 	this.addDay = function (startH,startM) {
@@ -193,6 +200,14 @@ function Model(){
 		this.notifyObservers();
 		return day;
 	};
+
+	this.removeDay = function(day){
+		
+		var index = 0;
+		if (index > -1) {
+		    days.splice(index, 1);
+		}
+	}
 	
 	// add an activity to model
 	this.addActivity = function (activity,day,position) {
@@ -216,6 +231,8 @@ function Model(){
 		this.notifyObservers();
 		return act;
 	};
+
+	
 	
 	// moves activity between the days, or day and parked activities.
 	// to park activity you need to set the new day to null

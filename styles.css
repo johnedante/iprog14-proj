@@ -110,12 +110,16 @@ body {
 /* MAKE NEW ACTICITY SPECIFIC CSS */
 
 #actPopUp {
-	height: 420px;
-	width:500px;
+	height: 450px;
+	width:450px;
 	position:absolute;
 	z-index: 1000;
 	top: calc(50% - 210px);
 	left: calc(50% - 250px);
+	background: white;
+	display: block;
+	border:white 2px solid;
+	border-radius:25px;	
 }
 
 #makeActivityView {
@@ -202,7 +206,7 @@ body {
 	width:200px;
 	height:30px;
 	background-color: #82B490;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 	border-radius:5px;
 	border:1px solid #B7E0FD;
 
@@ -218,6 +222,12 @@ body {
 }
 
 #cancelBtn {
+	margin-left:19px;
+	background-color: red;
+}
+
+#deleteBtn {
+	display:none;
 	margin-left:19px;
 	background-color: red;
 }
