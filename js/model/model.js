@@ -266,12 +266,7 @@ function Model(){
 				this.removeActivity(activity,day,i);
 			}
 
-<<<<<<< HEAD
-			if (day > -1) {
-			
-=======
 			/*if(day>-1){
->>>>>>> Bug fixes and some CSS
 	    		this.removedDays.push(day);
 			}*/
 			
