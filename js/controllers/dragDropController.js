@@ -35,6 +35,12 @@ var remDays = 0;
 		model.makeUpdate();
 	});
 
+	view.mABtn3.click(function(){
+		for(var i=model.parkedActivities.length;i>0;i--){
+			model.removeParkedActivity(i-1);
+		}
+	});
+
 }
 
 	function makeDay(model) {

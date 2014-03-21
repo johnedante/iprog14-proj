@@ -2,6 +2,7 @@ var DragDropView = function (container,model) {
 
 	this.mABtn = container.find('#mAView');
 	this.mABtn2 = container.find('#mAView2');
+	this.mABtn3 = container.find('#mAView3');
 	model.addObserver(this);
 	
 	

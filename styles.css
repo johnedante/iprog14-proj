@@ -105,6 +105,7 @@ body {
 }
  
 #div1 {
+	margin-bottom: 10px;
 	margin-top: 0px;
 	height:500px;
 	margin-left:20px;
@@ -349,9 +350,10 @@ header{
 	z-index:10000;
 }
  
- #mAView,#mAView2{
+ #mAView,#mAView2, #mAView3{
  	margin-left: 20px;
  }
+
 
 .ui-sortable-helper {
 	border: 1px solid rgba(0,255,125,0.5);
@@ -369,4 +371,9 @@ header{
 .start p{
 	margin:0;
 	padding:0;
+}
+
+#parked {
+	width:180px;
+	float:left;
 }
