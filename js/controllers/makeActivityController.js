@@ -15,7 +15,7 @@ var MakeActivityController = function(view, model ) {
 		
 	});
 
-	$('html').mouseup(function(e){
+	$('html').click(function(e){
 	if($("#makeActivityView").css("opacity")==1&&e.target.id==$("#makeActivityView").attr("id")){	//changes views without changing the model
 		$('#makeActivityView').fadeOut('slow',function(){
 			$('#dragDropView').removeClass('blurry');
@@ -38,7 +38,7 @@ var MakeActivityController = function(view, model ) {
 				var av= model.actvar;  
 				
 				model.actvar = ["none","none"];
-				alert(view.id);
+				//alert(view.id);
 				if (av[0]== "none"){  // if av[0] is "none", then it is a new activity and a new one should be created, otherwise the activity should be modified
 					model.addActivity(new Activity(nameField.value,lengthField.value,typeList.value,descField.value));}
 				else{

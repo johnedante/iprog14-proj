@@ -36,10 +36,9 @@ var DayController = function(view, model ) {
 	$('.delDay').click(function(){
 		var s = "deleteDay"+(view.id+2);
 		if(s == this.id){
+			model.removeDay(view.id);
 			view.remove();
 			this.remove();
-			//$("#daydiv"+parseInt(view.id+2)).hide();
-			model.removeDay(view.id);
 		}
 		
 	});

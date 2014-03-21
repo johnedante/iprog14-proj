@@ -263,12 +263,9 @@ function Model(){
 			var lt = this.days[day]._activities.length;
 			for(var i = lt-1; i >=0; i--){
 				var activity = this.days[day]._activities[i];
+				this.addParkedActivity(activity);
 				this.removeActivity(activity,day,i);
 			}
-
-			/*if(day>-1){
-	    		this.removedDays.push(day);
-			}*/
 			
 		this.notifyObservers();
 		}
