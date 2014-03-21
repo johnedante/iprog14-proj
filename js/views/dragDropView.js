@@ -6,7 +6,6 @@ var DragDropView = function (container,model) {
 	
 	
 this.update = function(){
-	if($("#div1").children().size()>0){$("#arrowImg").show();}else{$("#arrowImg").hide();}
 $(as);
 }
 

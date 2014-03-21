@@ -10,7 +10,24 @@ var MakeActivityController = function(view, model ) {
 			$("#typeList").val(0);
 			$("#descField").val("");
 			$("#deleteBtn").hide();	
+			model.actvar = ["none","none"];
 		});
+		
+	});
+
+	$('html').mouseup(function(e){
+	if($("#makeActivityView").css("opacity")==1&&e.target.id==$("#makeActivityView").attr("id")){	//changes views without changing the model
+		$('#makeActivityView').fadeOut('slow',function(){
+			$('#dragDropView').removeClass('blurry');
+			nameField.style.border="1px solid #dedede";
+			lengthField.style.border="1px solid #dedede";
+			$("#nameField").val("");		//populates the input fields after having found the proper activity
+			$("#lengthField").val("");
+			$("#typeList").val(0);
+			$("#descField").val("");
+			$("#deleteBtn").hide();	
+			model.actvar = ["none","none"];
+		});}
 		
 	});
 

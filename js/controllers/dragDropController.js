@@ -1,14 +1,17 @@
 var DragDropController = function(view, model ) {
 var index = 2;
+var remDays = 0;
 
 	$('#dragDropField').append('<div id="daydiv'+index+'" class="daydiv"></div>');
 	$('#daydiv'+index).append('<div id="start'+index+'" class="start"></div>');
 	$('#daydiv'+index).append('<div id="stats'+index+'" class="stats"></div>');
 	$('#daydiv'+index).append('<div id="div'+index+'" class="droparea"></div>');
+	$('#daydiv'+index).append('<button id="deleteDay'+index+'" class="delDay">REMOVE DAY</button>');
 
 	index++;
 	// Creates first Day on load
-	makeDay(model); 
+	makeDay(model);
+	model.makeUpdate(); 
 
 	// This creates testdata
 	createTestData(); 
@@ -25,12 +28,13 @@ var index = 2;
 		$('#daydiv'+index).append('<div id="start'+index+'" class="start"></div>');
 		$('#daydiv'+index).append('<div id="stats'+index+'" class="stats"></div>');
 		$('#daydiv'+index).append('<div id="div'+index+'" class="droparea"></div>');
-		$('#daydiv'+index).append('<button id="deleteDay'+index+'" class="delDay">DELETE DAY</button>');
+		$('#daydiv'+index).append('<button id="deleteDay'+index+'" class="delDay">REMOVE DAY</button>');
 
 		index++;
 		makeDay(model);
 		model.makeUpdate();
 	});
+
 }
 
 	function makeDay(model) {

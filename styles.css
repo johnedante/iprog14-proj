@@ -52,12 +52,12 @@ body {
 .droparea {
 	overflow-y:auto;
 	overflow-x:hidden;
-	height:344px;
+	height:314px;
  	width:180px;
  	background:white;
  	border-radius:5px;
  	margin-top: 1px;
- 	border:2px solid black;
+ 	border:2px solid rgba(0,0,0,0.3);
  	float:left;
 }
 
@@ -71,7 +71,7 @@ body {
 	margin: 5px 0px 5px 60px;
  	width:60px;
  	border-radius:5px;
- 	border:2px solid black;
+ 	border:2px solid rgba(0,0,0,0.3);
 }
 
 .statline {
@@ -99,7 +99,8 @@ body {
 	float:left;
 	width:184px;
 	margin-bottom: 20px;
-	background: white;
+	background: rgba(255,255,255,0.3);
+	border: 1px dashed white;
 	border-radius:5px;	
 }
  
@@ -117,7 +118,7 @@ body {
 /* MAKE NEW ACTICITY SPECIFIC CSS */
 
 #actPopUp {
-	height: 450px;
+	height: 420px;
 	width:450px;
 	position:absolute;
 	z-index: 1000;
@@ -146,8 +147,13 @@ body {
 }
 
 #dragDropField {
+	position:relative;
+}
+
+#dragCont {
+	position:relative;
+	margin:0 auto;
 	width:1288px;
-	margin: 0 auto;
 }
 
 #buttons p, #buttons button {
@@ -189,7 +195,7 @@ body {
 	width: 40px;
 	height: 15px;
 	border-radius:5px;
- 	border:2px solid black;
+ 	border:2px solid rgba(0,0,0,0.3);
 }
 
 #descField {
@@ -219,14 +225,38 @@ body {
 	margin-bottom: 10px;
 	margin-right: 6px;
 	border-radius:5px;
-	border:2px solid black;
+	border:2px solid rgba(0,0,0,0.3);
 	cursor: pointer; 
 	cursor: hand;
 
 	transition: background-color 0.2s;
 }
 
+.plusBtn{
+	position:relative;
+	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
+	font-size: 21px;
+	letter-spacing: -1px;
+	font-weight: bold;
+	text-align: center;
+	width:30px;
+	height:30px;
+	left: -15px;
+	margin-bottom: 10px;
+	margin-right: 6px;
+	border-radius:5px;
+	border:2px solid rgba(0,0,0,0.3);
+	cursor: pointer; 
+	cursor: hand;
+	background: url('https://cdn0.iconfinder.com/data/icons/basic-regular/64/190-128.png') #82B490;
+	background-repeat:no-repeat;
+	background-size: 100%;
+
+	transition: background-color 0.2s;
+}
+
 .delDay{
+	position:relative;
 	font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
 	font-size: 15px;
 	letter-spacing: -1px;
@@ -234,42 +264,61 @@ body {
 	text-align: center;
 	width:184px;
 	height:30px;
-	background-color: red;
+	background-color: rgba(0,0,0,0.3);
 	margin-right: 6px;
 	border-radius:5px;
-	border:2px solid black;
+	border:2px solid rgba(0,0,0,0.3);
 	cursor: pointer; 
 	cursor: hand;
 
 	transition: background-color 0.2s;
 }
 
-.navBtn:hover {
+.delDay:hover {
+	background-color: rgba(255,0,0,0.8);
+}
+
+.navBtn:hover, .plusBtn:hover , #cancelBtn:hover, #saveBtn:hover{
 	background-color:#eee;
 	cursor: pointer; 
 	cursor: hand;
 }
 
 #saveBtn {
-	background-color: green;
+	float:right;
+	margin-right:29px;
+	background-color: rgba(0,255,0,0.8);
 	cursor: pointer; 
 	cursor: hand;
 }
 
 #cancelBtn {
 	margin-left:19px;
-	background-color: red;
+	background-color: rgba(255,0,0,0.8);
 	cursor: pointer; 
 	cursor: hand;
 }
 
 #deleteBtn {
+	position:relative;
 	display:none;
-	margin-left:19px;
-	background-color: red;
+	width:30px;
+	margin-left:205px;
+	top:-40px;
+	background: url("https://cdn3.iconfinder.com/data/icons/computer-network-icons/512/Trash_Bin-128.png") rgba(0,0,0,0.3);
+	background-size: 100%;
 	cursor: pointer; 
 	cursor: hand;
+
+	transition: background-color 0.2s;
+	
 }
+
+#deleteBtn:hover{
+	background-color: rgba(255,0,0,0.8);
+}
+
+
 
 
 /* HEADER AND TEXT */
@@ -283,6 +332,7 @@ body {
     -webkit-margin-before: 5px;
 	-webkit-margin-after: 5px;
 	margin-left: 10px;
+	pointer-events:none;
 }
 
 #headerTxt {
@@ -299,7 +349,7 @@ header{
 	z-index:10000;
 }
  
- #mAView{
+ #mAView,#mAView2{
  	margin-left: 20px;
  }
 

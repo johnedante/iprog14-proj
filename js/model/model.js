@@ -259,24 +259,27 @@ function Model(){
 				break;
 			}
 		}
-		if(con){
-		}else{
-			var length = this.days[day]._activities.length;
-			for(var i = length-1; i >=0; i--){
+		if(!con){
+			var lt = this.days[day]._activities.length;
+			for(var i = lt-1; i >=0; i--){
 				var activity = this.days[day]._activities[i];
 				this.removeActivity(activity,day,i);
 			}
 
+<<<<<<< HEAD
 			if (day > -1) {
 			
+=======
+			/*if(day>-1){
+>>>>>>> Bug fixes and some CSS
 	    		this.removedDays.push(day);
-			}
+			}*/
 			
-		}
 		this.notifyObservers();
+		}
 		
-		
-	}
+	};
+
 	
 	// moves activity between the days, or day and parked activities.
 	// to park activity you need to set the new day to null
