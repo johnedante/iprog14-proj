@@ -19,7 +19,7 @@ var remDays = 0;
 	//switches views
 	view.mABtn.click(function(){	
 		$('#dragDropView').addClass('blurry');
-		$('#makeActivityView').fadeIn();
+		$('#makeActivityView').fadeIn(200);
 	});
 
 	  //creates new days and divs to hold the activities for those days and connects them with .sortable()

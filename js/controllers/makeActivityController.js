@@ -1,7 +1,7 @@
 var MakeActivityController = function(view, model ) {
 
 	view.dDBtn.click(function(){	//changes views without changing the model
-		$('#makeActivityView').fadeOut('slow',function(){
+		$('#makeActivityView').fadeOut(200,function(){
 			$('#dragDropView').removeClass('blurry');
 			nameField.style.border="1px solid #dedede";
 			lengthField.style.border="1px solid #dedede";
@@ -17,7 +17,7 @@ var MakeActivityController = function(view, model ) {
 
 	$('html').click(function(e){
 	if($("#makeActivityView").css("opacity")==1&&e.target.id==$("#makeActivityView").attr("id")){	//changes views without changing the model
-		$('#makeActivityView').fadeOut('slow',function(){
+		$('#makeActivityView').fadeOut(200,function(){
 			$('#dragDropView').removeClass('blurry');
 			nameField.style.border="1px solid #dedede";
 			lengthField.style.border="1px solid #dedede";
@@ -33,7 +33,7 @@ var MakeActivityController = function(view, model ) {
 
 	view.dDBtn2.click(function(){	//changes views after having changed the model
 		if(lengthField.value>0&&nameField.value!=""){
-			$('#makeActivityView').fadeOut('slow',function(){
+			$('#makeActivityView').fadeOut(200,function(){
 				$('#dragDropView').removeClass('blurry');
 				var av= model.actvar;  
 				
@@ -65,7 +65,7 @@ var MakeActivityController = function(view, model ) {
 });
 	view.dDBtn3.click(function(){
 		if(lengthField.value>0&&nameField.value!=""){
-			$('#makeActivityView').fadeOut('slow',function(){
+			$('#makeActivityView').fadeOut(200,function(){
 				$('#dragDropView').removeClass('blurry');
 				var av= model.actvar;  
 				

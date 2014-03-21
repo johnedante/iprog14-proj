@@ -17,7 +17,7 @@ var DayController = function(view, model ) {
 			model.modifyActivity(od,op);	//changes the variable model.actvar and tells the listener that it has changed
 			
 			$('#dragDropView').addClass('blurry');
-			$('#makeActivityView').fadeIn();
+			$('#makeActivityView').fadeIn(200);
 		}
 	});
 
