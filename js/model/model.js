@@ -10,7 +10,7 @@ var selectedActivity = null;
 // var act = new Activity("some activity",20,1,"Some description);
 function Activity(name,length,typeid,description){
 	var _name = name;
-	var _length = length;
+	var _length = parseInt(length);
 	var _typeid = typeid;
 	var _description = description;
 	

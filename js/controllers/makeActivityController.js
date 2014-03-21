@@ -89,4 +89,10 @@ var MakeActivityController = function(view, model ) {
 	}
 	});
 
+	$("#lengthField").keypress( function(e) {
+    var chr = String.fromCharCode(e.which);
+    if ("1234567890".indexOf(chr) < 0)
+        return false;
+	});
+
 }
